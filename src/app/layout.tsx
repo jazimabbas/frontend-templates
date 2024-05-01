@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
+import { ThemeProvider } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+
 import "@/styles/globals.css";
+import { theme } from "@/utils/theme";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -20,7 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={notoSans.variable}>
-      <body>{children}</body>
+      <body>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }
