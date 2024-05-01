@@ -1,0 +1,12 @@
+:root {
+  --font-semibold: 600;
+  --font-medium: 500;
+  --font-normal: 400;
+
+  --color-dark: hsl(224, 71%, 4%);
+  --color-text: hsl(0, 0%, 32%);
+  --color-plain: hsl(0, 0%, 100%);
+  --color-primary: hsl(245, 58%, 51%);
+
+  --color-gradient-page: linear-gradient(148deg, #f9fafb 8.89%, #d2d6db 100.48%);
+}
