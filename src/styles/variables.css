@@ -5,8 +5,16 @@
 
   --color-dark: hsl(224, 71%, 4%);
   --color-text: hsl(0, 0%, 32%);
-  --color-plain: hsl(0, 0%, 100%);
+
+  --color-base: hsl(0, 0%, 100%);
+  --color-base-50: hsl(0, 0%, 98%);
+  --color-base-200: hsl(0, 0%, 90%);
+
   --color-primary: hsl(245, 58%, 51%);
+  --color-primary-light: hsl(244, 55%, 41%);
+
+  --color-disabled: hsl(0, 0%, 96%);
+  --color-text-disabled: hsl(0, 0%, 64%);
 
   --color-gradient-page: linear-gradient(148deg, #f9fafb 8.89%, #d2d6db 100.48%);
 }
