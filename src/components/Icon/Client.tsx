@@ -14,7 +14,7 @@ export const Wrapper = styled("button")({
   },
 
   "&:focus": {
-    boxShadow: "0px 0px 0px 4px rgba(68, 76, 231, 0.12)",
+    boxShadow: "0px 0px 0px 4px var(--box-shadow-focus)",
     borderRadius: "4px",
   },
 

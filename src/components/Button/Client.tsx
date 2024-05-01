@@ -12,11 +12,11 @@ export const GeneralButton = styled("button")({
   cursor: "pointer",
 
   "&:hover": {
-    boxShadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)",
+    boxShadow: "0px 1px 3px 0px hsla(0, 0%, 0%, 0.1), 0px 1px 2px 0px hsla(0, 0%, 0%, 0.06)",
   },
 
   "&:focus": {
-    boxShadow: "0px 0px 0px 4px rgba(68, 76, 231, 0.12)",
+    boxShadow: "0px 0px 0px 4px var(--box-shadow-focus)",
   },
 
   "&:disabled": {
