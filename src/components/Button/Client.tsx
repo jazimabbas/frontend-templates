@@ -29,25 +29,16 @@ export const GeneralButton = styled("button")({
 export const PrimaryButton = styled(GeneralButton)({
   backgroundColor: "var(--color-primary)",
 
-  "&:hover": {
-    backgroundColor: "var(--color-primary-light)",
-  },
-
-  "&:focus": {
+  "&:hover, &:focus": {
     backgroundColor: "var(--color-primary-light)",
   },
 });
 
 export const SecondaryButton = styled(GeneralButton)({
-  backgroundColor: "var(--color-base)",
   color: "var(--color-dark)",
+  backgroundColor: "var(--color-base)",
 
-  "&:hover": {
-    backgroundColor: "var(--color-base-50)",
-    border: "1px solid var(--color-base-200)",
-  },
-
-  "&:focus": {
+  "&:hover, &:focus": {
     backgroundColor: "var(--color-base-50)",
     border: "1px solid var(--color-base-200)",
   },
