@@ -1,7 +1,8 @@
-import { Icon } from "@/components/Icon";
-import { Button } from "@/components/Button";
 import { RiMenuLine } from "@remixicon/react";
+import { Icon } from "@/components/Icon";
 import { Link } from "@/components/Link";
+import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,9 @@ export default function HomePage() {
       </div>
       <div style={{ margin: "20px 0" }}>
         <Link>Features</Link>
+      </div>
+      <div style={{ margin: "20px 0", maxWidth: "300px", width: "100%" }}>
+        <Input />
       </div>
     </div>
   );
