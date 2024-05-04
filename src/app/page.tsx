@@ -16,7 +16,13 @@ export default function HomePage() {
         <Link>Features</Link>
       </div>
       <div style={{ margin: "20px 0", maxWidth: "300px", width: "100%" }}>
-        <Input />
+        <Input
+          id="email"
+          label="Password"
+          type="password"
+          placeholder="Your Password .."
+          hasError
+        />
       </div>
     </div>
   );

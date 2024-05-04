@@ -1,5 +1,6 @@
 "use client";
 import { styled } from "@mui/material";
+import { RiQuestionLine } from "@remixicon/react";
 
 export const Wrapper = styled("div")({
   fontSize: "0.875rem",
@@ -24,6 +25,10 @@ export const FieldWrapper = styled("div")({
   ":focus-within": {
     boxShadow:
       "0px 0px 0px 1px #444CE7, 0px 1px 2px 0px hsla(220, 42.86%, 10.98%, 0.05), 0px 0px 0px 4px hsla(237.06, 77.25%, 58.63%, 0.12)",
+
+    "&[aria-invalid='true']": {
+      boxShadow: "0px 0px 0px 1px #D92D20, 0px 0px 0px 4px rgba(217, 45, 32, 0.12)",
+    },
   },
 
   "&[aria-disabled='true']": {
@@ -53,4 +58,14 @@ export const Hint = styled("span")({
   color: "var(--color-text-500)",
   display: "inline-block",
   marginTop: "6px",
+
+  "&[aria-invalid='true']": {
+    color: "var(--color-danger)",
+  },
+});
+
+export const Icon = styled(RiQuestionLine)({
+  "&[aria-invalid='true']": {
+    color: "var(--color-danger)",
+  },
 });

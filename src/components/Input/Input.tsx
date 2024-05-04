@@ -1,15 +1,30 @@
-import { RiQuestionLine } from "@remixicon/react";
-import { FieldWrapper, Label, InputField, Wrapper, Hint } from "./Client";
+import { FieldWrapper, Label, InputField, Wrapper, Hint, Icon } from "./Client";
 
-export function Input() {
+type Props = React.ComponentProps<typeof InputField> & {
+  label: string;
+  id: string;
+  hasError?: boolean;
+  hintMessage?: string;
+  hasIcon?: boolean;
+};
+
+export function Input({
+  label,
+  id,
+  disabled,
+  hasError = false,
+  hintMessage,
+  hasIcon = false,
+  ...delegated
+}: Props) {
   return (
     <Wrapper>
-      <Label>Email</Label>
-      <FieldWrapper aria-disabled>
-        <InputField placeholder="name@gmail.com" disabled />
-        <RiQuestionLine size={16} />
+      <Label htmlFor={id}>{label}</Label>
+      <FieldWrapper aria-disabled={disabled} aria-invalid={hasError}>
+        <InputField id={id} {...delegated} />
+        {hasIcon && <Icon size={16} aria-invalid={hasError} />}
       </FieldWrapper>
-      <Hint>This is a hint text.</Hint>
+      {hintMessage && <Hint aria-invalid={hasError}>{hintMessage}</Hint>}
     </Wrapper>
   );
 }
