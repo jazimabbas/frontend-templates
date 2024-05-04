@@ -1,12 +1,7 @@
+import type { InputProps } from "./types";
 import { FieldWrapper, Label, InputField, Wrapper, Hint, Icon } from "./Client";
 
-type Props = React.ComponentProps<typeof InputField> & {
-  label: string;
-  id: string;
-  hasError?: boolean;
-  hintMessage?: string;
-  hasIcon?: boolean;
-};
+type Props = React.ComponentProps<typeof InputField> & InputProps;
 
 export function Input({
   label,

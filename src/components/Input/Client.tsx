@@ -1,5 +1,5 @@
 "use client";
-import { styled } from "@mui/material";
+import { styled, SxProps } from "@mui/material";
 import { RiQuestionLine } from "@remixicon/react";
 
 export const Wrapper = styled("div")({
@@ -37,7 +37,7 @@ export const FieldWrapper = styled("div")({
   },
 });
 
-export const InputField = styled("input")({
+const inputStyles: SxProps = {
   color: "var(--color-text-900)",
   flex: 1,
   border: "none",
@@ -52,6 +52,15 @@ export const InputField = styled("input")({
     color: "var(--color-text-400)",
     cursor: "not-allowed",
   },
+};
+
+export const InputField = styled("input")({
+  ...inputStyles,
+});
+
+export const TextArea = styled("textarea")({
+  ...inputStyles,
+  resize: "none",
 });
 
 export const Hint = styled("span")({
@@ -62,6 +71,11 @@ export const Hint = styled("span")({
   "&[aria-invalid='true']": {
     color: "var(--color-danger)",
   },
+});
+
+export const Length = styled(Hint)({
+  textAlign: "right",
+  display: "block",
 });
 
 export const Icon = styled(RiQuestionLine)({

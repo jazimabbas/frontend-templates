@@ -2,7 +2,7 @@ import { RiMenuLine } from "@remixicon/react";
 import { Icon } from "@/components/Icon";
 import { Link } from "@/components/Link";
 import { Button } from "@/components/Button";
-import { Input } from "@/components/Input";
+import { Input, Textarea } from "@/components/Input";
 
 export default function HomePage() {
   return (
@@ -22,6 +22,17 @@ export default function HomePage() {
           type="password"
           placeholder="Your Password .."
           hasError
+        />
+      </div>
+      <div style={{ margin: "20px 0", maxWidth: "300px", width: "100%" }}>
+        <Textarea
+          id="message"
+          label="Password"
+          placeholder="Your Password .."
+          rows={4}
+          cols={1}
+          maxLen={300}
+          currentLen={0}
         />
       </div>
     </div>
