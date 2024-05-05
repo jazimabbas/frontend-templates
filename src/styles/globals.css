@@ -6,3 +6,12 @@ html {
   font-family: var(--font-family), sans-serif;
   color: var(--color-text);
 }
+
+@media (max-width: 768px) {
+  --container-max-width: 100%;
+  --side-padding: 32px;
+}
+
+@media (max-width: 375px) {
+  --side-padding: 16px;
+}
