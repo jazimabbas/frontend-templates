@@ -7,6 +7,10 @@ html {
   color: var(--color-text);
 }
 
+body {
+  background: linear-gradient(148deg, #f9fafb 8.89%, #d2d6db 100.48%);
+}
+
 @media (max-width: 768px) {
   --container-max-width: 100%;
   --side-padding: 32px;
