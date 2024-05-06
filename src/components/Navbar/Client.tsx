@@ -6,6 +6,19 @@ export const Wrapper = styled("nav")({
   padding: "28px 0",
 });
 
+export const NavWrapper = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "20px",
+
+  "@media (min-width: 965px)": {
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+});
+
 export const LogoWrapper = styled(Link)({
   display: "flex",
   alignItems: "center",

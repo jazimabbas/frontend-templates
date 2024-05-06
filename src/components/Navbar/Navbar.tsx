@@ -3,13 +3,13 @@ import Stack from "@mui/material/Stack";
 import logo from "@/assets/logo.svg";
 import { Button } from "../Button";
 import { MaxWidth } from "../MaxWidth";
-import { LogoName, LogoWrapper, NavItem, NavItems, Wrapper } from "./Client";
+import { LogoName, LogoWrapper, NavItem, NavItems, NavWrapper, Wrapper } from "./Client";
 
 export function Navbar() {
   return (
     <Wrapper>
       <MaxWidth>
-        <Stack flexDirection="row" alignItems="center" justifyContent="space-between">
+        <NavWrapper>
           <Stack flexDirection="row" alignItems="center" gap="96px">
             <LogoWrapper href="#">
               <Image src={logo} width={32} height={32} alt="App Logo" />
@@ -39,7 +39,7 @@ export function Navbar() {
             </Button>
             <Button sx={{ padding: "10px 16px" }}>See pricing</Button>
           </Stack>
-        </Stack>
+        </NavWrapper>
       </MaxWidth>
     </Wrapper>
   );
