@@ -4,6 +4,10 @@ import Link from "next/link";
 
 export const Wrapper = styled("nav")({
   padding: "28px 0",
+
+  "@media (max-width: 768px)": {
+    display: "none",
+  },
 });
 
 export const NavWrapper = styled("div")({
