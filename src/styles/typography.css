@@ -5,7 +5,7 @@ h1 {
 
 h2 {
   font-size: 3rem;
-  font-weight: var(--font-medium);
+  font-weight: var(--font-semibold);
 }
 
 h3 {

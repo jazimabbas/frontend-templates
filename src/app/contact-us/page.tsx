@@ -1,7 +1,8 @@
 import { type Metadata } from "next/types";
-import { Main, MaxWidth } from "./ui/Common";
+import { FAQ } from "./ui/FAQ";
 import { Hero } from "./ui/Hero";
 import { Navbar } from "@/components/Navbar";
+import { Main, MaxWidth } from "./ui/Common";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -14,6 +15,7 @@ export default function ContactUsPage() {
       <Main>
         <MaxWidth>
           <Hero />
+          <FAQ />
         </MaxWidth>
       </Main>
     </>
