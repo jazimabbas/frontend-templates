@@ -1,7 +1,7 @@
 "use client";
 import { styled } from "@mui/material";
 
-export const Card = styled("div")({
+export const Card = styled("div")(({ theme }) => ({
   padding: "32px",
   borderRadius: "8px",
   border: "1px solid var(--color-text-200)",
@@ -10,7 +10,22 @@ export const Card = styled("div")({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-});
+  gap: "16px",
+
+  "& > :last-child": {
+    flexShrink: 0,
+  },
+
+  [theme.breakpoints.down("mobile")]: {
+    flexDirection: "column",
+    alignItems: "start",
+    padding: "16px",
+
+    "& > :last-child": {
+      width: "100%",
+    },
+  },
+}));
 
 export const Title = styled("h4")({
   fontWeight: "var(--font-semibold)",
