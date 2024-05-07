@@ -49,4 +49,14 @@ export const IconWrapper = styled("div")({
 
 export const FormWrapper = styled("div")({
   flex: 1,
+  padding: "32px",
+  borderRadius: "8px",
+  border: "1px solid var(--color-text-200)",
+  backgroundColor: "var(--color-base)",
+  boxShadow: "0px 10px 15px -3px hsla(0, 0%, 0%, 0.10), 0px 4px 6px -2px hsla(0, 0%, 0%, 0.05)",
+});
+
+export const FieldWrapper = styled("div")({
+  display: "flex",
+  gap: "32px",
 });

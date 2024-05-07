@@ -18,15 +18,16 @@ export function Textarea({
   showLen = true,
   maxLen = 500,
   currentLen = 0,
+  sx,
   ...delegated
 }: Props) {
   const renderHint = () => {
     const hasMaxLengthExceed = currentLen > maxLen;
     const showLengthMessageError = showLen && hasMaxLengthExceed;
 
-    if (showLengthMessageError)
+    if (showLen)
       return (
-        <Length aria-invalid={hasError}>
+        <Length aria-invalid={showLengthMessageError}>
           {currentLen}/{maxLen ?? 500}
         </Length>
       );
@@ -35,7 +36,7 @@ export function Textarea({
   };
 
   return (
-    <Wrapper>
+    <Wrapper sx={sx}>
       <Label htmlFor={id}>{label}</Label>
       <FieldWrapper aria-disabled={disabled} aria-invalid={hasError}>
         <TextArea id={id} {...delegated} />

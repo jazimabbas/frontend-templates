@@ -2,6 +2,7 @@ import { RiBuildingLine, RiMailLine, RiPhoneLine } from "@remixicon/react";
 import {
   ContentWrapper,
   Description,
+  FieldWrapper,
   FormWrapper,
   Heading,
   IconWrapper,
@@ -9,6 +10,8 @@ import {
   Items,
   Wrapper,
 } from "./Client";
+import { Input, Textarea } from "@/components/Input";
+import { Button } from "@/components/Button";
 
 export function Hero() {
   return (
@@ -40,7 +43,22 @@ export function Hero() {
           </Item>
         </Items>
       </ContentWrapper>
-      <FormWrapper />
+      <FormWrapper>
+        <FieldWrapper>
+          <Input id="name" label="Name" placeholder="Your name" />
+          <Input id="email" label="Email" placeholder="example@example.com" />
+        </FieldWrapper>
+        <Textarea
+          sx={{ marginTop: "24px", marginBottom: "40px" }}
+          id="message"
+          label="Message"
+          placeholder="Write your message..."
+          rows={5}
+          showLen
+          maxLen={500}
+        />
+        <Button sx={{ width: "100%" }}>Submit</Button>
+      </FormWrapper>
     </Wrapper>
   );
 }

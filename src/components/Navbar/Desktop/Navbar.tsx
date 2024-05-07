@@ -30,10 +30,8 @@ export function DesktopNavbar() {
             </NavItems>
           </Stack>
           <Stack flexDirection="row" alignItems="center" gap="16px">
-            <Button variant="secondary" sx={{ padding: "10px 16px" }}>
-              Learn more
-            </Button>
-            <Button sx={{ padding: "10px 16px" }}>See pricing</Button>
+            <Button variant="secondary">Learn more</Button>
+            <Button>See pricing</Button>
           </Stack>
         </NavWrapper>
       </MaxWidth>

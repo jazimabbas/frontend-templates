@@ -4,6 +4,7 @@ import { RiQuestionLine } from "@remixicon/react";
 
 export const Wrapper = styled("div")({
   fontSize: "0.875rem",
+  width: "100%",
 });
 
 export const Label = styled("label")({
@@ -43,6 +44,7 @@ const inputStyles: SxProps = {
   border: "none",
   backgroundColor: "transparent",
   outline: "none",
+  width: "100%",
 
   "::placeholder": {
     color: "var(--color-text-500)",

@@ -2,7 +2,7 @@
 import { styled } from "@mui/material";
 
 export const GeneralButton = styled("button")({
-  padding: "12px 20px",
+  padding: "10px 16px",
   borderRadius: "4px",
   boxShadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)",
   color: "var(--color-base)",
