@@ -5,14 +5,22 @@ export const Wrapper = styled("div")({
   flex: 1,
 });
 
-export const Heading = styled("h1")({
+export const Heading = styled("h1")(({ theme }) => ({
   marginTop: "11px",
   marginBottom: "20px",
-});
 
-export const Description = styled("p")({
+  [theme.breakpoints.down("tablet")]: {
+    marginTop: "0px",
+  },
+}));
+
+export const Description = styled("p")(({ theme }) => ({
   fontSize: "1.25rem",
-});
+
+  [theme.breakpoints.down("mobile")]: {
+    fontSize: "1.125rem",
+  },
+}));
 
 export const Items = styled("ul")({
   padding: 0,
