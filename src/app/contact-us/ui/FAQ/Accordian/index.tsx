@@ -1,7 +1,7 @@
 import { RiIndeterminateCircleLine } from "@remixicon/react";
 import { Wrapper, Item, Content, Title, Description } from "./Client";
 
-export function Accordian() {
+export function Accordian({ isLast = false }: { isLast?: boolean }) {
   return (
     <Wrapper>
       <Item>
@@ -15,7 +15,7 @@ export function Accordian() {
         </Content>
         <RiIndeterminateCircleLine color="var(--color-text-400)" />
       </Item>
-      <hr />
+      {!isLast && <hr />}
     </Wrapper>
   );
 }

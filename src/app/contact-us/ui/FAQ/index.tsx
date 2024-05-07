@@ -1,4 +1,5 @@
 import { Accordian } from "./Accordian";
+import { CustomerSupport } from "./CustomerSupport";
 import { AccordianWrapper, Description, Wrapper } from "./Client";
 
 export function FAQ() {
@@ -9,7 +10,8 @@ export function FAQ() {
       <AccordianWrapper>
         <Accordian />
         <Accordian />
-        <Accordian />
+        <Accordian isLast />
+        <CustomerSupport />
       </AccordianWrapper>
     </Wrapper>
   );
