@@ -2,7 +2,7 @@
 import { MaxWidth as MaxW } from "@/components/MaxWidth";
 import { styled } from "@mui/material";
 
-export const Main = styled("main")({
+export const Main = styled("div")({
   "--spacing": "16px",
   margin: "var(--spacing)",
   marginTop: 0,

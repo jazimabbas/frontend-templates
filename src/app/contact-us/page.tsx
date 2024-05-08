@@ -3,6 +3,7 @@ import { FAQ } from "./ui/FAQ";
 import { Hero } from "./ui/Hero";
 import { Navbar } from "@/components/Navbar";
 import { Main, MaxWidth } from "./ui/Common";
+import { Footer } from "./ui/Footer";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -13,10 +14,11 @@ export default function ContactUsPage() {
     <>
       <Navbar />
       <Main>
-        <MaxWidth>
+        <MaxWidth as="main">
           <Hero />
           <FAQ />
         </MaxWidth>
+        <Footer />
       </Main>
     </>
   );
