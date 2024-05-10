@@ -33,8 +33,10 @@ export const Title = styled("h5")({
   fontSize: "1.125rem",
   fontWeight: "var(--font-medium)",
   marginBottom: "8px",
-});
-
-export const Description = styled("p")({
-  paddingBottom: "28px",
+  color: "var(--color-dark)",
+  width: "100%",
+  textAlign: "left",
+  backgroundColor: "transparent",
+  border: "none",
+  cursor: "pointer",
 });
