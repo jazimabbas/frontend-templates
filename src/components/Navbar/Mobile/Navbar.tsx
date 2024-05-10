@@ -1,6 +1,7 @@
 import { RiMenuLine } from "@remixicon/react";
 import { Logo } from "../Logo";
 import { Wrapper } from "./Client";
+import { MobileMenu } from "./Menu";
 import { MaxWidth } from "@/components/MaxWidth";
 
 export function MobileNavbar() {
@@ -10,6 +11,7 @@ export function MobileNavbar() {
         <Logo />
         <RiMenuLine />
       </Wrapper>
+      <MobileMenu />
     </MaxWidth>
   );
 }
