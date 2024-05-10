@@ -40,3 +40,11 @@ export const Title = styled("h5")({
   border: "none",
   cursor: "pointer",
 });
+
+export const Icon = styled("svg")(({ theme }) => ({
+  color: "var(--color-text-400)",
+
+  [theme.breakpoints.down("tablet")]: {
+    marginTop: "3px",
+  },
+}));

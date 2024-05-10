@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { RiIndeterminateCircleLine } from "@remixicon/react";
-import { Wrapper, Item, Content, Title } from "./Client";
+import { RiAddCircleLine, RiIndeterminateCircleLine } from "@remixicon/react";
+import { Wrapper, Item, Content, Title, Icon } from "./Client";
 
 export function Accordian({ isLast = false }: { isLast?: boolean }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -24,7 +24,7 @@ export function Accordian({ isLast = false }: { isLast?: boolean }) {
             wide selection to cater to different tastes.
           </motion.p>
         </Content>
-        <RiIndeterminateCircleLine color="var(--color-text-400)" />
+        <Icon as={isExpanded ? RiIndeterminateCircleLine : RiAddCircleLine} />
       </Item>
       {!isLast && <hr />}
     </Wrapper>
