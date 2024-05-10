@@ -1,40 +1,15 @@
-import { RiMenuLine } from "@remixicon/react";
-import { Icon } from "@/components/Icon";
-import { Link } from "@/components/Link";
-import { Button } from "@/components/Button";
-import { Input, Textarea } from "@/components/Input";
+import { Metadata } from "next";
+import { Navbar } from "./ui/Navbar";
+
+export const metadata: Metadata = {
+  title: "GreatFrontend Templates - Jazim Abbas",
+};
 
 export default function HomePage() {
   return (
-    <div style={{ margin: "10px" }}>
-      <h1>Great Frontend Project</h1>
-      <Button variant="primary">Back to Home</Button>
-      <div style={{ margin: "20px 0" }}>
-        <Icon icon={<RiMenuLine />} />
-      </div>
-      <div style={{ margin: "20px 0" }}>
-        <Link>Features</Link>
-      </div>
-      <div style={{ margin: "20px 0", maxWidth: "300px", width: "100%" }}>
-        <Input
-          id="email"
-          label="Password"
-          type="password"
-          placeholder="Your Password .."
-          hasError
-        />
-      </div>
-      <div style={{ margin: "20px 0", maxWidth: "300px", width: "100%" }}>
-        <Textarea
-          id="message"
-          label="Password"
-          placeholder="Your Password .."
-          rows={4}
-          cols={1}
-          maxLen={300}
-          currentLen={0}
-        />
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <p>Homepage</p>
+    </>
   );
 }

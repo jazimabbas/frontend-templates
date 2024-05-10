@@ -10,6 +10,7 @@ html {
 
 body {
   background: linear-gradient(148deg, #f9fafb 8.89%, #d2d6db 100.48%);
+  background-attachment: fixed
 }
 
 @media (max-width: 768px) {
