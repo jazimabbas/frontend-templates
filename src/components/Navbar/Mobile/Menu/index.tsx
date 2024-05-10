@@ -4,13 +4,13 @@ import { Logo } from "../../Logo";
 import { Button } from "@/components/Button";
 import { ButtonsWrapper, Items, Wrapper } from "./Client";
 
-export function MobileMenu() {
+export function MobileMenu({ onCloseMenu }: { onCloseMenu: any }) {
   return (
     <Wrapper>
       <div>
         <Stack flexDirection="row" justifyContent="space-between" alignItems="center">
           <Logo />
-          <RiCloseLine />
+          <RiCloseLine style={{ cursor: "pointer" }} onClick={onCloseMenu} />
         </Stack>
         <Items>
           <li>

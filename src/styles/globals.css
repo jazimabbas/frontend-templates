@@ -24,3 +24,7 @@ body {
     --side-padding: 16px;
   }
 }
+
+body.open-menu {
+  overflow: hidden;
+}
