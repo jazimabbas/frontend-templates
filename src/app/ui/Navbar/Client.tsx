@@ -8,8 +8,11 @@ export const Wrapper = styled("header")({
 });
 
 export const Title = styled("p")({
-  fontWeight: "var(--font-medium)",
+  fontWeight: "var(--font-semibold)",
   color: "hsl(0, 0%, 0%)",
   textAlign: "center",
   fontSize: "1.2rem",
+  display: "flex",
+  justifyContent: "center",
+  gap: '10px'
 });
