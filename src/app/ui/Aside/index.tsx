@@ -1,13 +1,13 @@
-import { Items, Title, Wrapper, Item } from "./Client";
+import { Wrapper } from "./Client";
+import { CategoryList } from "../Categories";
 
 export function Aside() {
   return (
     <Wrapper>
-      <Title>Page Sections</Title>
-      <Items>
-        <Item aria-selected>Contact us</Item>
-        <Item>Contact us</Item>
-      </Items>
+      <CategoryList />
+      <div style={{ marginTop: "50px" }}>
+        <CategoryList />
+      </div>
     </Wrapper>
   );
 }
