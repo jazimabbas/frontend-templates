@@ -1,13 +1,19 @@
+import { Category, Template } from "@/data/templates/types";
 import { Title, Items, Item } from "./Client";
 
-export function CategoryList() {
+type Props = Template & { selectedCategory: Category };
+
+export function CategoryList({ section, categories, selectedCategory }: Props) {
   return (
-    <>
-      <Title>Page Sections</Title>
+    <div>
+      <Title>{section}</Title>
       <Items>
-        <Item aria-selected>Contact us</Item>
-        <Item>Contact us</Item>
+        {categories.map((category) => (
+          <Item aria-selected={selectedCategory.id === category.id} key={category.id}>
+            {category.title}
+          </Item>
+        ))}
       </Items>
-    </>
+    </div>
   );
 }

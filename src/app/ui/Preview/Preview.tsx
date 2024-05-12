@@ -10,7 +10,6 @@ export function Preview() {
         loading="lazy"
         width="100%"
         height={500}
-        sandbox="allow-same-origin"
         title="#"
       />
     </Wrapper>
