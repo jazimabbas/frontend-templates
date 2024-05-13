@@ -1,7 +1,7 @@
 "use client";
 import { styled } from "@mui/material";
 
-export const Wrapper = styled("div")(({ theme }) => ({
+export const Wrapper = styled("form")(({ theme }) => ({
   flex: 1,
   alignSelf: "flex-start",
   padding: "32px",

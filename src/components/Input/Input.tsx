@@ -10,6 +10,7 @@ export function Input({
   hasError = false,
   hintMessage,
   hasIcon = false,
+  showHint,
   ...delegated
 }: Props) {
   return (
@@ -19,7 +20,7 @@ export function Input({
         <InputField id={id} {...delegated} />
         {hasIcon && <Icon size={16} aria-invalid={hasError} />}
       </FieldWrapper>
-      {hintMessage && <Hint aria-invalid={hasError}>{hintMessage}</Hint>}
+      {showHint && <Hint aria-invalid={hasError}>{hintMessage}</Hint>}
     </Wrapper>
   );
 }

@@ -4,4 +4,5 @@ export type InputProps = {
   hasError?: boolean;
   hintMessage?: string;
   hasIcon?: boolean;
+  showHint?: boolean;
 };
