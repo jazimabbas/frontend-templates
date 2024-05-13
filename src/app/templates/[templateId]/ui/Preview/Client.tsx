@@ -1,7 +1,7 @@
 "use client";
 import { styled } from "@mui/material";
 
-export const Wrapper = styled("div")({
+export const Wrapper = styled('div')({
   "--color-border": "var(--color-text-300)",
 
   border: "1px solid var(--color-border)",

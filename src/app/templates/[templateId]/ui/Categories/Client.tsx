@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { styled } from "@mui/material";
 
 export const Title = styled("p")({
@@ -16,7 +17,7 @@ export const Items = styled("div")({
   gap: "5px",
 });
 
-export const Item = styled("button")({
+export const Item = styled(Link)({
   border: "none",
   textAlign: "left",
   padding: "12px",
