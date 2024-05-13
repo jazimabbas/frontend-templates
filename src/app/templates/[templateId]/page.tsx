@@ -3,6 +3,7 @@ import { Navbar } from "./ui/Navbar";
 import { Main, Wrapper } from "./ui/Client";
 import { MaxWidth } from "@/components/MaxWidth";
 import { PageContent } from "./ui/PageContent";
+import { Filters } from "./ui/Filters";
 
 export const metadata: Metadata = {
   title: "GreatFrontend Templates - Jazim Abbas",
@@ -16,6 +17,7 @@ export default function HomePage({ params: { templateId } }: Context) {
       <Navbar />
       <Main>
         <MaxWidth>
+          <Filters templateId={templateId} />
           <Wrapper>
             <PageContent templateId={templateId} />
           </Wrapper>
