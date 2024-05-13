@@ -5,6 +5,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 
 import "@/styles/globals.css";
 import { theme } from "@/utils/theme";
+import { Analytics } from "@vercel/analytics/react";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -31,6 +32,8 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </AppRouterCacheProvider>
+
+        {process.env.NODE_ENV === "production" && <Analytics mode="production" />}
       </body>
     </html>
   );
