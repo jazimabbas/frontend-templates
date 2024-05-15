@@ -26,7 +26,8 @@ export default function Homepage() {
           <Chip
             clickable
             component="a"
-            href="/"
+            href="https://frontend-templates.jazimabbas.dev"
+            target="_blank"
             label="My Frontend Templates"
             icon={<RiPuzzle2Line />}
           />

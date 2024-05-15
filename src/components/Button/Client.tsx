@@ -1,33 +1,15 @@
 "use client";
-import { styled } from "@mui/material";
+import { styled, SxProps } from "@mui/material";
+import { GeneralButton } from "./GeneralButton";
 
-export const GeneralButton = styled("button")({
-  padding: "10px 16px",
-  borderRadius: "4px",
-  boxShadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)",
-  color: "var(--color-base)",
-  fontWeight: "var(--font-medium)",
-  border: "1px solid transparent",
-  transition: "background-color 0.3s, box-shadow 0.3s",
-  cursor: "pointer",
-
-  "&:hover": {
-    boxShadow: "0px 1px 3px 0px hsla(0, 0%, 0%, 0.1), 0px 1px 2px 0px hsla(0, 0%, 0%, 0.06)",
-  },
-
-  "&:focus": {
-    boxShadow: "0px 0px 0px 4px var(--box-shadow-focus)",
-  },
-
-  "&:disabled": {
-    backgroundColor: "var(--color-disabled)",
-    color: "var(--color-text-disabled)",
-    cursor: "not-allowed",
-  },
-});
+const disabledStyles: SxProps = {
+  backgroundColor: "transparent",
+  boxShadow: "none",
+};
 
 export const PrimaryButton = styled(GeneralButton)({
   backgroundColor: "var(--color-primary)",
+  color: "var(--color-base)",
 
   "&:hover, &:focus": {
     backgroundColor: "var(--color-primary-light)",
@@ -35,11 +17,63 @@ export const PrimaryButton = styled(GeneralButton)({
 });
 
 export const SecondaryButton = styled(GeneralButton)({
-  color: "var(--color-dark)",
+  borderColor: "var(--color-text-200)",
   backgroundColor: "var(--color-base)",
+  color: "var(--color-dark-900)",
 
   "&:hover, &:focus": {
-    backgroundColor: "var(--color-base-50)",
-    border: "1px solid var(--color-base-200)",
+    backgroundColor: "var(--color-text-50)",
   },
+});
+
+export const TertiaryButton = styled(GeneralButton)({
+  borderColor: "transparent",
+  backgroundColor: "transparent",
+  boxShadow: "none",
+  color: "var(--color-primary)",
+
+  "&:hover": {
+    backgroundColor: "var(--color-text-50)",
+    boxShadow: "none",
+  },
+
+  "&:focus": {
+    backgroundColor: "var(--color-text-50)",
+  },
+
+  "&:focus:hover": {
+    boxShadow: "0px 0px 0px 4px var(--box-shadow-focus)",
+  },
+
+  "&:disabled, &:disabled:hover": disabledStyles,
+});
+
+export const LinkButton = styled(TertiaryButton)({
+  padding: 0,
+
+  "&:hover": {
+    backgroundColor: "transparent",
+  },
+});
+
+export const LinkGrayButton = styled(LinkButton)({
+  color: "var(--color-text)",
+
+  "&:hover, &:focus": {
+    color: "var(--color-dark-900)",
+  },
+});
+
+export const DestructiveButton = styled(PrimaryButton)({
+  backgroundColor: "var(--color-danger)",
+
+  "&:hover, &:focus": {
+    backgroundColor: "var(--color-danger-100)",
+  },
+
+  "&:focus": {
+    boxShadow: "0px 0px 0px 1px var(--color-danger-200), 0px 0px 0px 4px hsla(6, 74%, 46%, 0.12)",
+  },
+
+  "&:disabled, &:disabled:hover": disabledStyles,
 });
