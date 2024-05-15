@@ -30,6 +30,28 @@
   --color-disabled: hsl(0, 0%, 96%);
   --color-text-disabled: hsl(0, 0%, 64%);
 
+  /* badges */
+  --bg-neutral-badge: hsl(210, 20%, 98%);
+  --border-neutral-badge: var(--color-text-200);
+  --color-text-neutral-badge: var(--color-text);
+
+  --bg-danger-badge: hsl(0, 86%, 97%);
+  --border-danger-badge: hsl(0, 96%, 89%);
+  --color-text-danger-badge: var(--color-danger);
+
+  --bg-warning-badge: hsl(48, 86%, 97%);
+  --border-warning-badge: hsl(48, 97%, 77%);
+  --color-text-warning-badge: hsl(26, 90%, 37%);
+
+  --bg-success-badge: hsl(138, 76%, 97%);
+  --border-success-badge: hsl(141, 79%, 85%);
+  --color-text-success-badge: hsl(142, 72%, 29%);
+
+  --bg-brand-badge: hsl(226, 100%, 97%);
+  --border-brand-badge: hsl(228, 96%, 89%);
+  --color-text-brand-badge: var(--color-primary);
+  /* badges */
+
   --color-gradient-page: linear-gradient(148deg, #f9fafb 8.89%, #d2d6db 100.48%);
   --box-shadow-focus: hsla(237.06, 77.25%, 58.63%, 0.12);
 
