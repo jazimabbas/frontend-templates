@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { RiStarLine } from "@remixicon/react";
 import { NewButton } from "@/components/NewButton";
 
 export const metadata: Metadata = {
@@ -9,8 +10,13 @@ export default function ButtonPage() {
   return (
     <div style={{ margin: "50px" }}>
       <div style={{ display: "flex", gap: "10px" }}>
-        <NewButton>Button CTA</NewButton>
-        <NewButton variant="secondary">Button CTA</NewButton>
+        <NewButton size="lg" leftIcon={RiStarLine}>
+          Button CTA
+        </NewButton>
+        <NewButton variant="secondary" size="2xl" rightIcon={RiStarLine}>
+          Button CTA
+        </NewButton>
+        <NewButton variant="destructive">Button CTA</NewButton>
       </div>
     </div>
   );

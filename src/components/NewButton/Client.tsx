@@ -10,26 +10,31 @@ const disabledStyles: SxProps = {
 const mdStyles: SxProps = {
   padding: "10px 14px",
   fontSize: "0.875rem",
+  gap: "4px",
 };
 
 const lgStyles: SxProps = {
   padding: "10px 16px",
   fontSize: "1rem",
+  gap: "6px",
 };
 
 const xlStyles: SxProps = {
   padding: "12px 20px",
   fontSize: "1rem",
+  gap: "6px",
 };
 
 const xl2Styles: SxProps = {
   padding: "16px 24px",
   fontSize: "1.125rem",
+  gap: "10px",
 };
 
 export const GeneralButton = styled("button")<{ size: Size }>(({ size }) => ({
   display: "flex",
-  gap: "4px",
+  alignItems: "center",
+  justifyContent: "center",
   borderRadius: "4px",
   boxShadow: "0px 1px 3px 0px hsla(0, 0%, 0%, 0.10), 0px 1px 2px 0px hsla(0, 0%, 0%, 0.06)",
   cursor: "pointer",
