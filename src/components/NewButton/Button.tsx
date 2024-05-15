@@ -1,21 +1,12 @@
-import { ButtonProps, Size, Variant } from "./types";
+import { ButtonProps, Components, IconSizes } from "./types";
 import {
   DestructiveButton,
-  GeneralButton,
   LinkButton,
   LinkGrayButton,
   PrimaryButton,
   SecondaryButton,
   TertiaryButton,
 } from "./Client";
-
-type Components = {
-  [key in Variant]: typeof GeneralButton;
-};
-
-type IconSizes = {
-  [key in Size]: number;
-};
 
 const components: Components = {
   primary: PrimaryButton,
@@ -47,7 +38,7 @@ export function Button({
   const iconSize = iconSizes[size];
 
   const render = () => {
-    if (iconOnly) return <Icon size={iconSize} />;
+    if (iconOnly && Icon) return <Icon size={iconSize} />;
     return (
       <>
         {LeftIcon && <LeftIcon size={iconSize} />}
