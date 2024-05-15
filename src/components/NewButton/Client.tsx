@@ -7,31 +7,41 @@ const disabledStyles: SxProps = {
   boxShadow: "none",
 };
 
-const mdStyles: SxProps = {
-  padding: "10px 14px",
-  fontSize: "0.875rem",
-  gap: "4px",
+const mdStyles = (iconOnly: boolean): SxProps => {
+  return {
+    padding: iconOnly ? "10px" : "10px 14px",
+    fontSize: "0.875rem",
+    gap: "4px",
+  };
 };
 
-const lgStyles: SxProps = {
-  padding: "10px 16px",
-  fontSize: "1rem",
-  gap: "6px",
+const lgStyles = (iconOnly: boolean): SxProps => {
+  return {
+    padding: iconOnly ? "12px" : "10px 16px",
+    fontSize: "1rem",
+    gap: "6px",
+  };
 };
 
-const xlStyles: SxProps = {
-  padding: "12px 20px",
-  fontSize: "1rem",
-  gap: "6px",
+const xlStyles = (iconOnly: boolean): SxProps => {
+  return {
+    padding: iconOnly ? "14px" : "12px 20px",
+    fontSize: "1rem",
+    gap: "6px",
+  };
 };
 
-const xl2Styles: SxProps = {
-  padding: "16px 24px",
-  fontSize: "1.125rem",
-  gap: "10px",
+const xl2Styles = (iconOnly: boolean): SxProps => {
+  return {
+    padding: iconOnly ? "16px" : "16px 24px",
+    fontSize: "1.125rem",
+    gap: "10px",
+  };
 };
 
-export const GeneralButton = styled("button")<{ size: Size }>(({ size }) => ({
+export const GeneralButton = styled("button", {
+  shouldForwardProp: (prop) => prop !== "size" && prop !== "iconOnly",
+})<{ size: Size; iconOnly: boolean }>(({ size, iconOnly }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -56,10 +66,10 @@ export const GeneralButton = styled("button")<{ size: Size }>(({ size }) => ({
     cursor: "not-allowed",
   },
 
-  ...(size === "md" && (mdStyles as any)),
-  ...(size === "lg" && (lgStyles as any)),
-  ...(size === "xl" && (xlStyles as any)),
-  ...(size === "2xl" && (xl2Styles as any)),
+  ...(size === "md" && (mdStyles(iconOnly) as any)),
+  ...(size === "lg" && (lgStyles(iconOnly) as any)),
+  ...(size === "xl" && (xlStyles(iconOnly) as any)),
+  ...(size === "2xl" && (xl2Styles(iconOnly) as any)),
 }));
 
 export const PrimaryButton = styled(GeneralButton)({

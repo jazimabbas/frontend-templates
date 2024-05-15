@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function ButtonPage() {
   return (
     <div style={{ margin: "50px" }}>
-      <div style={{ display: "flex", gap: "10px" }}>
+      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
         <NewButton size="lg" leftIcon={RiStarLine}>
           Button CTA
         </NewButton>
@@ -17,6 +17,7 @@ export default function ButtonPage() {
           Button CTA
         </NewButton>
         <NewButton variant="destructive">Button CTA</NewButton>
+        <NewButton iconOnly icon={RiStarLine} />
       </div>
     </div>
   );

@@ -4,9 +4,11 @@ export type Variant = "primary" | "secondary" | "tertiary" | "destructive" | "li
 
 export type Size = "md" | "lg" | "xl" | "2xl";
 
-export type ButtonProps = Omit<React.ComponentProps<typeof GeneralButton>, "size"> & {
+export type ButtonProps = Omit<React.ComponentProps<typeof GeneralButton>, "size" | "iconOnly"> & {
   variant?: Variant;
   size?: Size;
   leftIcon?: any;
   rightIcon?: any;
+  iconOnly?: boolean;
+  icon?: any;
 };

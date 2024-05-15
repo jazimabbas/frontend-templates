@@ -38,17 +38,28 @@ export function Button({
   size = "md",
   leftIcon: LeftIcon,
   rightIcon: RightIcon,
+  iconOnly = false,
+  icon: Icon,
   children,
   ...delegated
 }: ButtonProps) {
   const Component = components[variant];
   const iconSize = iconSizes[size];
 
+  const render = () => {
+    if (iconOnly) return <Icon size={iconSize} />;
+    return (
+      <>
+        {LeftIcon && <LeftIcon size={iconSize} />}
+        {children && <span>{children}</span>}
+        {RightIcon && <RightIcon size={iconSize} />}
+      </>
+    );
+  };
+
   return (
-    <Component {...delegated} size={size}>
-      {LeftIcon && <LeftIcon size={iconSize} />}
-      {children && <span>{children}</span>}
-      {RightIcon && <RightIcon size={iconSize} />}
+    <Component {...delegated} size={size} iconOnly={iconOnly}>
+      {render()}
     </Component>
   );
 }
