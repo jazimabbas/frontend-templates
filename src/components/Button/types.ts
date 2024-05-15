@@ -1,3 +1,4 @@
+import { SxProps } from "@mui/material";
 import { GeneralButton } from "./GeneralButton";
 
 export type Variant = "primary" | "secondary" | "tertiary" | "destructive" | "link" | "link:gray";

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { RiStarLine } from "@remixicon/react";
-import { GlobalStyles } from "./Global";
+import { GlobalStyles } from "../common/Global";
 import { Button } from "@/components/Button";
 import { MaxWidth } from "@/components/MaxWidth";
 import { ButtonsWrapper, Wrapper } from "./Client";
@@ -16,15 +16,17 @@ export default function ButtonPage() {
       <MaxWidth>
         <Wrapper>
           <ButtonsWrapper>
-            <Button>Button CTA</Button>
-            <Button size="lg" leftIcon={RiStarLine}>
+            <Button variant="primary">Button CTA</Button>
+            <Button variant="primary" size="lg" leftIcon={RiStarLine}>
               Button CTA
             </Button>
-            <Button size="xl" rightIcon={RiStarLine}>
+            <Button variant="primary" size="xl" rightIcon={RiStarLine}>
               Button CTA
             </Button>
-            <Button size="2xl">Button CTA</Button>
-            <Button iconOnly size="2xl" icon={RiStarLine} />
+            <Button variant="primary" size="2xl">
+              Button CTA
+            </Button>
+            <Button variant="primary" iconOnly size="2xl" icon={RiStarLine} />
           </ButtonsWrapper>
 
           <ButtonsWrapper>
