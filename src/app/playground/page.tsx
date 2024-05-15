@@ -1,4 +1,9 @@
+import { Metadata } from "next";
 import { NewButton } from "@/components/NewButton";
+
+export const metadata: Metadata = {
+  title: "Playground",
+};
 
 export default function ButtonPage() {
   return (

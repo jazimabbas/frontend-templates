@@ -1,21 +1,40 @@
 "use client";
 import { styled, SxProps } from "@mui/material";
+import { Size } from "./types";
 
 const disabledStyles: SxProps = {
   backgroundColor: "transparent",
   boxShadow: "none",
 };
 
-export const GeneralButton = styled("button")({
+const mdStyles: SxProps = {
+  padding: "10px 14px",
+  fontSize: "0.875rem",
+};
+
+const lgStyles: SxProps = {
+  padding: "10px 16px",
+  fontSize: "1rem",
+};
+
+const xlStyles: SxProps = {
+  padding: "12px 20px",
+  fontSize: "1rem",
+};
+
+const xl2Styles: SxProps = {
+  padding: "16px 24px",
+  fontSize: "1.125rem",
+};
+
+export const GeneralButton = styled("button")<{ size: Size }>(({ size }) => ({
   display: "flex",
   gap: "4px",
-  padding: "10px 14px",
   borderRadius: "4px",
   boxShadow: "0px 1px 3px 0px hsla(0, 0%, 0%, 0.10), 0px 1px 2px 0px hsla(0, 0%, 0%, 0.06)",
   cursor: "pointer",
   border: "1px solid transparent",
   transition: "background-color 0.3s, box-shadow 0.3s, color 0.3s",
-  fontSize: "0.875rem",
   fontWeight: "var(--font-medium)",
 
   "&:hover": {
@@ -31,7 +50,12 @@ export const GeneralButton = styled("button")({
     color: "var(--color-text-disabled)",
     cursor: "not-allowed",
   },
-});
+
+  ...(size === "md" && (mdStyles as any)),
+  ...(size === "lg" && (lgStyles as any)),
+  ...(size === "xl" && (xlStyles as any)),
+  ...(size === "2xl" && (xl2Styles as any)),
+}));
 
 export const PrimaryButton = styled(GeneralButton)({
   backgroundColor: "var(--color-primary)",
@@ -65,6 +89,10 @@ export const TertiaryButton = styled(GeneralButton)({
 
   "&:focus": {
     backgroundColor: "#FAFAFA",
+  },
+
+  "&:focus:hover": {
+    boxShadow: "0px 0px 0px 4px var(--box-shadow-focus)",
   },
 
   "&:disabled, &:disabled:hover": disabledStyles,

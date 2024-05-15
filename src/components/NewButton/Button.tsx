@@ -1,3 +1,4 @@
+import { ButtonProps, Variant } from "./types";
 import {
   DestructiveButton,
   GeneralButton,
@@ -7,12 +8,6 @@ import {
   SecondaryButton,
   TertiaryButton,
 } from "./Client";
-
-type Variant = "primary" | "secondary" | "tertiary" | "destructive" | "link" | "link:gray";
-
-type Props = React.ComponentProps<typeof GeneralButton> & {
-  variant?: Variant;
-};
 
 type Components = {
   [key in Variant]: typeof GeneralButton;
@@ -27,7 +22,7 @@ const components: Components = {
   "link:gray": LinkGrayButton,
 };
 
-export function Button({ variant = "primary", ...delegated }: Props) {
+export function Button({ variant = "primary", size = "md", ...delegated }: ButtonProps) {
   const Component = components[variant];
-  return <Component {...delegated} />;
+  return <Component {...delegated} size={size} />;
 }
