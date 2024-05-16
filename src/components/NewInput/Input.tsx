@@ -1,7 +1,6 @@
-import type { InputProps } from "./types";
-import { FieldWrapper, Label, InputField, Wrapper, Hint, IconWrapper } from "./Client";
-
-type IconProps = React.ComponentProps<"button">;
+import type { IconProps, InputProps } from "./types";
+import { InputIcon } from "./Icon";
+import { FieldWrapper, Label, InputField, Wrapper, Hint } from "./Client";
 
 type Props = React.ComponentProps<typeof InputField> &
   InputProps & {
@@ -32,8 +31,10 @@ export function Input({
     <Wrapper fullWidth={fullWidth}>
       <Label htmlFor={id}>{label}</Label>
       <FieldWrapper aria-disabled={disabled} aria-invalid={hasError}>
-        {LeftIcon && <InputIcon icon={LeftIcon} hasError={false} {...leftIconProps} />}
-        <InputField id={id} {...delegated} aria-describedby={hintId} />
+        {LeftIcon && (
+          <InputIcon icon={LeftIcon} hasError={false} defaultIconSize={20} {...leftIconProps} />
+        )}
+        <InputField id={id} {...delegated} disabled={disabled} aria-describedby={hintId} />
         {RightIcon && <InputIcon icon={RightIcon} hasError={hasError} {...rightIconProps} />}
       </FieldWrapper>
       {showHint && (
@@ -44,13 +45,3 @@ export function Input({
     </Wrapper>
   );
 }
-
-type InputIconProps = IconProps & { icon: React.ComponentType<any>; hasError: boolean };
-
-const InputIcon = ({ icon: Icon, hasError, ...delegated }: InputIconProps) => {
-  return (
-    <IconWrapper aria-invalid={hasError} {...delegated}>
-      <Icon size={16} />
-    </IconWrapper>
-  );
-};

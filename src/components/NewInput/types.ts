@@ -5,3 +5,5 @@ export type InputProps = {
   hintMessage?: string;
   fullWidth?: boolean;
 };
+
+export type IconProps = React.ComponentProps<"button"> & { iconSize?: number };

@@ -47,11 +47,11 @@ const inputStyles: SxProps = {
   outline: "none",
   width: "100%",
 
-  "::placeholder": {
+  "&::placeholder": {
     color: "var(--color-text-500)",
   },
 
-  ":disabled": {
+  "&:disabled": {
     color: "var(--color-text-400)",
     cursor: "not-allowed",
   },
@@ -86,6 +86,7 @@ export const IconWrapper = styled("button")({
   padding: "0",
   border: "none",
   backgroundColor: "transparent",
+  flexShrink: 0,
 
   "&[aria-invalid='true']": {
     color: "var(--color-danger)",
