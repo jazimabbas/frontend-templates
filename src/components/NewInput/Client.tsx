@@ -37,6 +37,10 @@ export const FieldWrapper = styled("div")({
     borderColor: "var(--color-text-100)",
     cursor: "not-allowed",
   },
+
+  ".textarea&[aria-invalid='true']": {
+    borderColor: "var(--color-danger-300)",
+  },
 });
 
 const inputStyles: SxProps = {

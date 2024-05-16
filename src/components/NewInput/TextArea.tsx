@@ -43,8 +43,8 @@ export function Textarea({
   return (
     <Wrapper fullWidth={fullWidth} sx={sx}>
       <Label htmlFor={id}>{label}</Label>
-      <FieldWrapper aria-disabled={disabled} aria-invalid={isError}>
-        <TextArea id={id} {...delegated} />
+      <FieldWrapper className="textarea" aria-disabled={disabled} aria-invalid={isError}>
+        <TextArea id={id} disabled={disabled} {...delegated} />
       </FieldWrapper>
       {showHint && renderHint()}
     </Wrapper>
