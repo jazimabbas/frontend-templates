@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Input } from "@/components/NewInput";
+import { Input } from "@/components/Input";
 import { RiEyeLine, RiEyeOffLine } from "@remixicon/react";
 
 export function PasswordField() {

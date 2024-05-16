@@ -1,11 +1,12 @@
 "use client";
 import { styled, SxProps } from "@mui/material";
-import { RiQuestionLine } from "@remixicon/react";
 
-export const Wrapper = styled("div")({
+export const Wrapper = styled("div", { shouldForwardProp: (prop) => prop !== "fullWidth" })<{
+  fullWidth: boolean;
+}>(({ fullWidth }) => ({
   fontSize: "0.875rem",
-  width: "100%",
-});
+  width: fullWidth ? "100%" : undefined,
+}));
 
 export const Label = styled("label")({
   fontWeight: "var(--font-medium)",
@@ -36,6 +37,10 @@ export const FieldWrapper = styled("div")({
     borderColor: "var(--color-text-100)",
     cursor: "not-allowed",
   },
+
+  ".textarea&[aria-invalid='true']": {
+    borderColor: "var(--color-danger-300)",
+  },
 });
 
 const inputStyles: SxProps = {
@@ -46,11 +51,11 @@ const inputStyles: SxProps = {
   outline: "none",
   width: "100%",
 
-  "::placeholder": {
+  "&::placeholder": {
     color: "var(--color-text-500)",
   },
 
-  ":disabled": {
+  "&:disabled": {
     color: "var(--color-text-400)",
     cursor: "not-allowed",
   },
@@ -80,7 +85,13 @@ export const Length = styled(Hint)({
   display: "block",
 });
 
-export const Icon = styled(RiQuestionLine)({
+export const IconWrapper = styled("button")({
+  color: "var(--color-text-400)",
+  padding: "0",
+  border: "none",
+  backgroundColor: "transparent",
+  flexShrink: 0,
+
   "&[aria-invalid='true']": {
     color: "var(--color-danger)",
   },

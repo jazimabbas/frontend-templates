@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { RiMailLine, RiQuestionLine } from "@remixicon/react";
 import { Wrapper } from "./Client";
-import { Input } from "@/components/NewInput";
+import { Input } from "@/components/Input";
 import { GlobalStyles } from "../common/Global";
 import { MaxWidth } from "@/components/MaxWidth";
 

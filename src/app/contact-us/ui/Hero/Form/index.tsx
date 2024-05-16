@@ -55,6 +55,7 @@ export function ContactForm() {
         onChange={formik.handleChange}
         hasError={!!formik.errors.message}
         hintMessage={formik.errors.message}
+        showHint
       />
       <Button type="submit" sx={{ width: "100%" }}>
         Submit

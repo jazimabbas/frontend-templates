@@ -3,6 +3,7 @@ export type InputProps = {
   id: string;
   hasError?: boolean;
   hintMessage?: string;
-  hasIcon?: boolean;
-  showHint?: boolean;
+  fullWidth?: boolean;
 };
+
+export type IconProps = React.ComponentProps<"button"> & { iconSize?: number };

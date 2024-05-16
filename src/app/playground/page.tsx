@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { PasswordField } from "./PasswordInput";
-import { Textarea } from "@/components/NewInput";
+import { Textarea } from "@/components/Input";
 
 export const metadata: Metadata = {
   title: "Playground",

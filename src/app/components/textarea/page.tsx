@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Wrapper } from "./Client";
 import { GlobalStyles } from "../common/Global";
 import { MaxWidth } from "@/components/MaxWidth";
-import { Textarea } from "@/components/NewInput";
+import { Textarea } from "@/components/Input";
 
 export const metadata: Metadata = {
   title: "TextArea Component",
