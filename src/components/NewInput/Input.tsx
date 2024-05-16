@@ -5,7 +5,6 @@ type IconProps = React.ComponentProps<"button">;
 
 type Props = React.ComponentProps<typeof InputField> &
   InputProps & {
-    fullWidth?: boolean;
     showHint?: boolean;
     leftIcon?: React.ComponentType<any>;
     rightIcon?: React.ComponentType<any>;

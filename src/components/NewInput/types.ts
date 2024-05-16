@@ -3,5 +3,5 @@ export type InputProps = {
   id: string;
   hasError?: boolean;
   hintMessage?: string;
-  hasIcon?: boolean;
+  fullWidth?: boolean;
 };
