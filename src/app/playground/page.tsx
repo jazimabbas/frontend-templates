@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { PasswordField } from "./PasswordInput";
-import { Textarea } from "@/components/Input";
+import { Testimonial } from "@/components/Testimonial";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -11,8 +10,12 @@ export default function ButtonPage() {
     <>
       <div style={{ margin: "50px" }}>
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <PasswordField />
-          <Textarea id="message" label="Message" rows={5} showLen showHint />
+          <Testimonial
+            name="Sarah Dole"
+            handle="@sarahdole"
+            img={{ src: "/images/girl.jpeg", alt: "Small Girl" }}
+            testimonial="I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!"
+          />
         </div>
       </div>
     </>
