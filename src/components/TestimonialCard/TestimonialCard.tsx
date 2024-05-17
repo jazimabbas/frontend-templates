@@ -10,7 +10,7 @@ export type Props = React.ComponentProps<typeof Wrapper> & {
   testimonial: string;
 };
 
-export function Testimonial({ name, handle, img, testimonial, ...delegated }: Props) {
+export function TestimonialCard({ name, handle, img, testimonial, ...delegated }: Props) {
   return (
     <Wrapper {...delegated}>
       <Header>

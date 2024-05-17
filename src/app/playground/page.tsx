@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Testimonial } from "@/components/Testimonial";
+import { TestimonialCard } from "@/components/TestimonialCard";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -10,7 +10,7 @@ export default function ButtonPage() {
     <>
       <div style={{ margin: "50px" }}>
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <Testimonial
+          <TestimonialCard
             name="Sarah Dole"
             handle="@sarahdole"
             img={{ src: "/images/girl.jpeg", alt: "Small Girl" }}
