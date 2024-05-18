@@ -8,6 +8,10 @@ type Props = React.ComponentProps<typeof Wrapper> & {
     label: string;
     color?: BadgeColor;
   };
+  image: {
+    src: string;
+    alt?: string;
+  };
   title: string;
   excerpt: string;
   href?: string;
@@ -17,13 +21,20 @@ export function BlogCard({
   title,
   excerpt,
   badge: { label, color = "success" },
+  image: { src, alt = "Blog Card" },
   href,
   ...delegated
 }: Props) {
   return (
     <Wrapper {...delegated}>
       <ImageWrapper>
-        <Img priority={true} width={340} height={288} src="/images/blog-card.png" alt="Blog Card" />
+        <Img
+          priority={true}
+          width={340}
+          height={288}
+          src={src}
+          alt={alt}
+        />
       </ImageWrapper>
       <ContentWrapper>
         <Badge color={color} size="md" sx={{ marginBottom: "8px" }}>

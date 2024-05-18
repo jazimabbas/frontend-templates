@@ -13,6 +13,7 @@ export default function ButtonPage() {
           <BlogCard
             title="Top 5 Living Room Inspirations"
             excerpt="Curated vibrants colors for your living, make it pop & calm in the same time."
+            image={{ src: "/images/blog-card.png" }}
             badge={{ label: "Interior" }}
           />
         </div>

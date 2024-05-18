@@ -20,8 +20,8 @@ export const ImageWrapper = styled("div")({
 });
 
 export const Img = styled(Image)({
-  width: "auto",
-  height: "auto",
+  width: "100%",
+  height: "100%",
   objectFit: "cover",
   objectPosition: "center",
 });
