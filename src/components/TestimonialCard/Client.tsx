@@ -33,7 +33,7 @@ export const HeaderContent = styled("div")({
 });
 
 export const Name = styled("p")({
-  fontSize: "18px",
+  fontSize: "1.125rem",
   fontWeight: "var(--font-semibold)",
   color: "var(--color-dark-900)",
   width: "100%",
@@ -45,7 +45,7 @@ export const Name = styled("p")({
 });
 
 export const Handle = styled("p")({
-  fontSize: "14px",
+  fontSize: "0.875rem",
 });
 
 export const Description = styled("p")({

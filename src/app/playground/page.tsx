@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { TestimonialCard } from "@/components/TestimonialCard";
+import { BlogCard } from "@/components/BlogCard";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -10,11 +10,10 @@ export default function ButtonPage() {
     <>
       <div style={{ margin: "50px" }}>
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <TestimonialCard
-            name="Sarah Dole"
-            handle="@sarahdole"
-            img={{ src: "/images/girl.jpeg", alt: "Small Girl" }}
-            testimonial="I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!"
+          <BlogCard
+            title="Top 5 Living Room Inspirations"
+            excerpt="Curated vibrants colors for your living, make it pop & calm in the same time."
+            badge={{ label: "Interior" }}
           />
         </div>
       </div>

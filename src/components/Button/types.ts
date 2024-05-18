@@ -10,6 +10,7 @@ export type ButtonProps = Omit<React.ComponentProps<typeof GeneralButton>, "size
   size?: Size;
   leftIcon?: React.ComponentType<any>;
   rightIcon?: React.ComponentType<any>;
+  [x: string]: any;
 } & (
     | { iconOnly: true; icon: React.ComponentType<any> }
     | { iconOnly?: false; icon?: React.ComponentType<any> }
