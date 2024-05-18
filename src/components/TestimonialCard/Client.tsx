@@ -1,17 +1,12 @@
 "use client";
 import Image from "next/image";
 import { styled } from "@mui/material";
+import { Card } from "../common/Card";
 
-export const Wrapper = styled("a")({
-  backgroundColor: "var(--color-base)",
+export const Wrapper = styled(Card)({
   padding: "24px",
   display: "flex",
-  flexDirection: "column",
   gap: "16px",
-  border: "1px solid var(--color-text-200)",
-  borderRadius: "8px",
-  boxShadow: "0px 1px 3px 0px hsla(0, 0%, 0%, 0.10), 0px 1px 2px 0px hsla(0, 0%, 0%, 0.06)",
-  maxWidth: "340px",
 });
 
 export const Header = styled("div")({

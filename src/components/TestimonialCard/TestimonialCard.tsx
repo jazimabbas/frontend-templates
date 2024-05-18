@@ -12,7 +12,7 @@ export type Props = React.ComponentProps<typeof Wrapper> & {
 
 export function TestimonialCard({ name, handle, img, testimonial, ...delegated }: Props) {
   return (
-    <Wrapper {...delegated}>
+    <Wrapper as="a" {...delegated}>
       <Header>
         <Avatar width={48} height={48} src={img.src} alt={img.alt} />
         <HeaderContent>

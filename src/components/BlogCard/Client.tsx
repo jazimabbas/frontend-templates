@@ -1,14 +1,9 @@
 "use client";
-import { styled } from "@mui/material";
 import Image from "next/image";
+import { styled } from "@mui/material";
+import { Card } from "../common/Card";
 
-export const Wrapper = styled("div")({
-  maxWidth: "340px",
-  width: "100%",
-  borderRadius: "8px",
-  border: "1px solid var(--color-text-200)",
-  backgroundColor: "var(--color-base)",
-  boxShadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)",
+export const Wrapper = styled(Card)({
   overflow: "hidden",
 });
 

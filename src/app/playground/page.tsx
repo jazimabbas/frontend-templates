@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { BlogCard } from "@/components/BlogCard";
+import { ProfileCard } from "@/components/ProfileCard";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -10,12 +10,7 @@ export default function ButtonPage() {
     <>
       <div style={{ margin: "50px" }}>
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <BlogCard
-            title="Top 5 Living Room Inspirations"
-            excerpt="Curated vibrants colors for your living, make it pop & calm in the same time."
-            image={{ src: "/images/blog-card.png" }}
-            badge={{ label: "Interior" }}
-          />
+          <ProfileCard />
         </div>
       </div>
     </>
