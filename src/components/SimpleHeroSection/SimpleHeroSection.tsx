@@ -1,6 +1,12 @@
-import Image from "next/image";
-import { ActionWrapper, ContentWrapper, Description, ImageWrapper, Img, Wrapper } from "./Client";
-import { Button } from "../Button";
+import {
+  ActionWrapper,
+  Button,
+  ContentWrapper,
+  Description,
+  ImageWrapper,
+  Img,
+  Wrapper,
+} from "./Client";
 
 export function SimpleHeroSection() {
   return (
@@ -14,7 +20,7 @@ export function SimpleHeroSection() {
           <Button size="2xl" variant="secondary">
             Learn more
           </Button>
-          <Button size="2xl" variant="primary">
+          <Button size="2xl" sx={{ paddingLeft: "40px", paddingRight: "40px" }} variant="primary">
             See pricing
           </Button>
         </ActionWrapper>
