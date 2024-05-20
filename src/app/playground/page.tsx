@@ -1,16 +1,16 @@
 import { Metadata } from "next";
-import { ProfileCard } from "@/components/ProfileCard";
+import { SimpleHeroSection } from "@/components/SimpleHeroSection";
 
 export const metadata: Metadata = {
   title: "Playground",
 };
 
-export default function ButtonPage() {
+export default function PlaygroundPage() {
   return (
     <>
-      <div style={{ margin: "50px" }}>
+      <div style={{ margin: "16px" }}>
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <ProfileCard />
+          <SimpleHeroSection />
         </div>
       </div>
     </>
