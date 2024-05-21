@@ -1,6 +1,7 @@
 import { RiCheckFill } from "@remixicon/react";
-import { Feature, FeatureList, IconWrapper } from "./Client";
-import { Wrapper, ContentWrapper, ImageWrapper, Img, ActionWrapper, Button } from "../common/Hero";
+import { Button } from "./Button";
+import { Feature, FeatureList, IconWrapper, ActionWrapper } from "./Client";
+import { Wrapper, ContentWrapper, ImageWrapper, Img } from "../common/Hero";
 
 const features = [
   "Minimum 5K image resolution",

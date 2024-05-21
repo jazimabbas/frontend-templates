@@ -1,5 +1,6 @@
 "use client";
 import { styled } from "@mui/material";
+import { ActionWrapper as Actions } from "../common/Hero";
 
 export const FeatureList = styled("div")({
   marginTop: "64px",
@@ -29,3 +30,9 @@ export const IconWrapper = styled("div")({
   backgroundColor: "hsl(226, 100%, 97%)",
   color: "hsl(239, 84%, 67%)",
 });
+
+export const ActionWrapper = styled(Actions)(({ theme }) => ({
+  [theme.breakpoints.down("mobile")]: {
+    flexDirection: "row-reverse",
+  },
+}));
