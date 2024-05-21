@@ -1,12 +1,5 @@
-import {
-  ActionWrapper,
-  Button,
-  ContentWrapper,
-  Description,
-  ImageWrapper,
-  Img,
-  Wrapper,
-} from "./Client";
+import { Description } from "./Client";
+import { Wrapper, ContentWrapper, ImageWrapper, Img, ActionWrapper, Button } from "../common/Hero";
 
 export function SimpleHeroSection() {
   return (
