@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { SimpleHeroSection } from "@/components/SimpleHeroSection";
+import { FeatureBulletsHeroSection } from "@/components/FeatureBulletsHeroSection";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -10,7 +10,7 @@ export default function PlaygroundPage() {
     <>
       <div style={{ margin: "16px" }}>
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <SimpleHeroSection />
+          <FeatureBulletsHeroSection />
         </div>
       </div>
     </>
