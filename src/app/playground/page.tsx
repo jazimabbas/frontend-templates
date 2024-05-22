@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Wrapper } from "./Client";
 import { SideImageFeature } from "@/components/SideImageFeature";
+import { leftImageFeaturesData } from "@/utils/data";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 export default function PlaygroundPage() {
   return (
     <Wrapper>
-      <SideImageFeature />
+      <SideImageFeature {...leftImageFeaturesData} />
     </Wrapper>
   );
 }

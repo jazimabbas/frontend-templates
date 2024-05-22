@@ -1,6 +1,7 @@
 "use client";
 import { styled } from "@mui/material";
 import Image from "next/image";
+import { SideImageFeatureProps } from "./SideImageFeature";
 
 export const Wrapper = styled("div")(({ theme }) => ({
   padding: "96px",
@@ -20,18 +21,34 @@ export const Subtitle = styled("span")({
   marginBottom: "12px",
 });
 
+export const Title = styled("h2")({
+  "@media (min-width: 1100px)": {
+    maxWidth: "60%",
+    margin: "0 auto",
+  },
+});
+
 export const Description = styled("p")(({ theme }) => ({
   marginTop: "20px",
   fontSize: "1.25rem",
+
+  "@media (min-width: 1100px)": {
+    maxWidth: "816px",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
 
   [theme.breakpoints.down("mobile")]: {
     fontSize: "1.125rem",
   },
 }));
 
-export const FeatureWrapper = styled("div")(({ theme }) => ({
+export const FeatureWrapper = styled("div", { shouldForwardProp: (prop) => prop !== "imgVariant" })<
+  Pick<SideImageFeatureProps, "imgVariant">
+>(({ theme, imgVariant }) => ({
   marginTop: "64px",
   display: "flex",
+  flexDirection: imgVariant === "left" ? "row-reverse" : "row",
   gap: "32px",
 
   "@media (max-width: 950px)": {
@@ -82,6 +99,7 @@ export const IconWrapper = styled("div")({
 });
 
 export const ImageWrapper = styled("div")({
+  height: "100%",
   flex: 1,
   borderRadius: "6px",
   overflow: "hidden",
