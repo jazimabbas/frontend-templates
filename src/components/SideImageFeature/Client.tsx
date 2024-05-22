@@ -2,9 +2,17 @@
 import { styled } from "@mui/material";
 import Image from "next/image";
 
-export const Wrapper = styled("div")({
+export const Wrapper = styled("div")(({ theme }) => ({
   padding: "96px",
-});
+
+  [theme.breakpoints.down("tablet")]: {
+    padding: "64px 16px",
+  },
+
+  [theme.breakpoints.down("mobile")]: {
+    padding: "48px 12px",
+  },
+}));
 
 export const Subtitle = styled("span")({
   fontWeight: "var(--font-semibold)",
@@ -12,16 +20,26 @@ export const Subtitle = styled("span")({
   marginBottom: "12px",
 });
 
-export const Description = styled("p")({
+export const Description = styled("p")(({ theme }) => ({
   marginTop: "20px",
   fontSize: "1.25rem",
-});
 
-export const FeatureWrapper = styled("div")({
+  [theme.breakpoints.down("mobile")]: {
+    fontSize: "1.125rem",
+  },
+}));
+
+export const FeatureWrapper = styled("div")(({ theme }) => ({
   marginTop: "64px",
   display: "flex",
   gap: "32px",
-});
+
+  "@media (max-width: 950px)": {
+    flexDirection: "column",
+  },
+
+  [theme.breakpoints.down("tablet")]: {},
+}));
 
 export const FeatureList = styled("div")({
   flex: 1,
