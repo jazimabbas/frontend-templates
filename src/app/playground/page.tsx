@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import { FeatureBulletsHeroSection } from "@/components/FeatureBulletsHeroSection";
+import { Wrapper } from "./Client";
+import { SideImageFeature } from "@/components/SideImageFeature";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -7,12 +8,8 @@ export const metadata: Metadata = {
 
 export default function PlaygroundPage() {
   return (
-    <>
-      <div style={{ margin: "16px" }}>
-        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <FeatureBulletsHeroSection />
-        </div>
-      </div>
-    </>
+    <Wrapper>
+      <SideImageFeature />
+    </Wrapper>
   );
 }
