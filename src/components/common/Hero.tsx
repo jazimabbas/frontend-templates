@@ -1,12 +1,11 @@
 "use client";
 import Image from "next/image";
 import { styled } from "@mui/material";
-import { PageCard } from "../Utils";
 import { Button as Btn } from "../Button";
 
 const breakpoint = "1075px";
 
-export const Wrapper = styled(PageCard)(({ theme }) => ({
+export const Wrapper = styled("div")(({ theme }) => ({
   padding: "96px",
   display: "flex",
   gap: "32px",
