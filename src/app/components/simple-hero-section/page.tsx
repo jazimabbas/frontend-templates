@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { SimpleHeroSection } from "@/components/SimpleHeroSection";
-import { Wrapper } from "./Client";
+import { Card } from "../common/Card";
 
 export const metadata: Metadata = {
   title: "Simple Hero Section",
@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function SimpleHeroSectionPage() {
   return (
-    <Wrapper>
+    <Card>
       <SimpleHeroSection />
-    </Wrapper>
+    </Card>
   );
 }

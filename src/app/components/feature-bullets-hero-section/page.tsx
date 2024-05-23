@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Wrapper } from "./Client";
+import { Card } from "../common/Card";
 import { FeatureBulletsHeroSection } from "@/components/FeatureBulletsHeroSection";
 
 export const metadata: Metadata = {
@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function FeatureBulletsHeroSectionPage() {
   return (
-    <Wrapper>
+    <Card>
       <FeatureBulletsHeroSection />
-    </Wrapper>
+    </Card>
   );
 }
