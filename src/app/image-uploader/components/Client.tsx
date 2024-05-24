@@ -24,11 +24,16 @@ export const Card = styled("div")({
   overflow: "hidden",
 });
 
-export const ContentWrappeer = styled("div")({
+export const ContentWrappeer = styled("div")(({ theme }) => ({
   "--spacing": "32px",
-  padding: "var(--spacing)",
+  padding: "10px var(--spacing)",
+  paddingBottom: "32px",
   position: "relative",
-});
+
+  [theme.breakpoints.down("mobile")]: {
+    "--spacing": "16px",
+  },
+}));
 
 export const Header = styled("div")({
   display: "flex",
@@ -38,7 +43,7 @@ export const Header = styled("div")({
 
 export const AvatarWrapper = styled("div", { shouldForwardProp: (prop) => prop !== "hasImage" })<{
   hasImage?: boolean;
-}>(({ hasImage }) => ({
+}>(({ hasImage, theme }) => ({
   width: "160px",
   height: "160px",
   display: "flex",
@@ -47,20 +52,32 @@ export const AvatarWrapper = styled("div", { shouldForwardProp: (prop) => prop !
   borderRadius: "50%",
   border: "6px solid",
   borderColor: hasImage ? "var(--color-base)" : "whitesmoke",
-  transform: "translate(var(--spacing), -50%)",
+  transform: "translate(var(--spacing), -60%)",
   position: "absolute",
   top: "0",
   left: "0",
+
+  [theme.breakpoints.down("mobile")]: {
+    width: "96px",
+    height: "96px",
+    borderWidth: "2.5px",
+    transform: "translate(var(--spacing), -50%)",
+  },
 }));
 
-export const Title = styled("h2")({
+export const Title = styled("h2")(({ theme }) => ({
   margin: "24px 0",
   fontSize: "1.875rem",
-});
+
+  [theme.breakpoints.up("mobile")]: {
+    paddingTop: "16px",
+  },
+}));
 
 export const AboutWrapper = styled("div")({
   display: "flex",
   gap: "12px",
+  flexWrap: "wrap",
   fontSize: "1.25rem",
   color: "var(--color-dark)",
 

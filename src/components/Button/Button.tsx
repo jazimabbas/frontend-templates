@@ -18,6 +18,7 @@ const components: Components = {
 };
 
 const iconSizes: IconSizes = {
+  sm: 18,
   md: 18,
   lg: 18,
   xl: 18,

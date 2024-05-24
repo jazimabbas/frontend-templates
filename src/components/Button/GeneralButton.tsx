@@ -2,6 +2,14 @@
 import { styled, SxProps } from "@mui/material";
 import { Size } from "./types";
 
+const smStyles = (iconOnly: boolean): SxProps => {
+  return {
+    padding: iconOnly ? "10px" : "8px 12px",
+    fontSize: "0.875rem",
+    gap: "4px",
+  };
+};
+
 const mdStyles = (iconOnly: boolean): SxProps => {
   return {
     padding: iconOnly ? "10px" : "10px 14px",
@@ -48,6 +56,7 @@ export const GeneralButton = styled("button", {
   fontWeight: "var(--font-medium)",
   textDecoration: "none",
 
+  ...(size === "sm" && (smStyles(iconOnly) as any)),
   ...(size === "md" && (mdStyles(iconOnly) as any)),
   ...(size === "lg" && (lgStyles(iconOnly) as any)),
   ...(size === "xl" && (xlStyles(iconOnly) as any)),
