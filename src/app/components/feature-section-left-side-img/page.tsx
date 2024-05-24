@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Card>
+    <Card sx={{ ":first-child": { borderRadius: "6px" } }}>
       <SideImageFeature {...leftImageFeaturesData} />
     </Card>
   );

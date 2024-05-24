@@ -5,6 +5,7 @@ import { SideImageFeatureProps } from "./SideImageFeature";
 
 export const Wrapper = styled("div")(({ theme }) => ({
   padding: "96px",
+  backgroundColor: "var(--color-base)",
 
   [theme.breakpoints.down("tablet")]: {
     padding: "64px 16px",
