@@ -13,6 +13,7 @@ import {
   Title,
   Wrapper,
 } from "./components/Client";
+import { ImageUploadModal } from "./components/ImageUploadModal";
 import { ResponsiveComponent } from "@/components/ResponsiveComponent";
 
 export const metadata: Metadata = {
@@ -54,6 +55,8 @@ export default function ImageUploaderPage() {
           </Location>
         </ContentWrappeer>
       </Card>
+
+      <ImageUploadModal />
     </Wrapper>
   );
 }
