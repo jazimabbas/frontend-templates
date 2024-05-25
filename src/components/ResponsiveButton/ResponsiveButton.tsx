@@ -1,7 +1,7 @@
 "use client";
 import { useMemo } from "react";
-import useActiveMediaQuery from "./useActiveMediaQuery";
 import { Button } from "../Button";
+import useActiveMediaQuery from "./useActiveMediaQuery";
 
 const queries = [
   { id: "1", mediaQuery: "(max-width: 568px)", props: { size: "sm" } },
@@ -9,14 +9,14 @@ const queries = [
 ];
 
 export function ResponsiveButton() {
-  const activeMediaQueryId = useActiveMediaQuery(queries as any);
+  const activeMediaQuery = useActiveMediaQuery(queries.map((q) => q.mediaQuery) as any);
 
-  const activeMediaQuery = useMemo(() => {
-    return queries.find((q) => q.id === activeMediaQueryId);
-  }, [activeMediaQueryId]);
+  const active = useMemo(() => {
+    return queries.find((q) => q.mediaQuery === activeMediaQuery);
+  }, [activeMediaQuery]);
 
   return (
-    <Button size="lg" {...(activeMediaQuery?.props ?? ({} as any))}>
+    <Button size="lg" {...(active?.props ?? ({} as any))}>
       Responsive Button
     </Button>
   );

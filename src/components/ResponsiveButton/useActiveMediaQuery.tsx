@@ -1,39 +1,41 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function useActiveMediaQuery(queries: [{ id: string; mediaQuery: string }]) {
-  const [activeId, setActiveId] = useState<string | null>(null);
+export type MediaQuery = string;
+
+export default function useActiveMediaQuery(queries: MediaQuery[]) {
+  const [activeMediaQuery, setActiveMediaQuery] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleMediaQueryChange = (e: MediaQueryListEvent, query: (typeof queries)[0]) => {
+    const handleMediaQueryChange = (e: MediaQueryListEvent, query: MediaQuery) => {
       if (e.matches) {
-        setActiveId(query.id);
+        setActiveMediaQuery(query);
       } else {
         const mediaList = queries.map((q) => ({
-          media: window.matchMedia(q.mediaQuery),
-          id: q.id,
+          media: window.matchMedia(q),
+          mediaQuery: q,
         }));
         const media = mediaList.find((m) => m.media.matches);
-        setActiveId(media?.id ?? null);
+        setActiveMediaQuery(media?.mediaQuery ?? null);
       }
     };
 
     const matchMediaList = queries.map((query) => {
-      const media = window.matchMedia(query.mediaQuery);
-      if (media.matches) setActiveId(query.id);
-      return { media, ...query };
+      const media = window.matchMedia(query);
+      if (media.matches) setActiveMediaQuery(query);
+      return { media, mediaQuery: query };
     });
 
     matchMediaList.forEach((meta) => {
-      meta.media.addEventListener("change", (q) => handleMediaQueryChange(q, meta));
+      meta.media.addEventListener("change", (q) => handleMediaQueryChange(q, meta.mediaQuery));
     });
 
     return () => {
       matchMediaList.forEach((meta) => {
-        meta.media.removeEventListener("change", (q) => handleMediaQueryChange(q, meta));
+        meta.media.removeEventListener("change", (q) => handleMediaQueryChange(q, meta.mediaQuery));
       });
     };
   }, [queries]);
 
-  return activeId;
+  return activeMediaQuery;
 }
