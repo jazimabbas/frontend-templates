@@ -12,6 +12,7 @@ import {
   Title,
   Wrapper,
 } from "./components/Client";
+import { ResponsiveButton } from "@/components/ResponsiveButton/ResponsiveButton";
 
 export const metadata: Metadata = {
   title: "Image Uploader",
@@ -45,6 +46,7 @@ export default function ImageUploaderPage() {
             <span>🇨🇦</span>
             <p>Vancouver, Canada</p>
           </Location>
+          <ResponsiveButton />
         </ContentWrappeer>
       </Card>
     </Wrapper>
