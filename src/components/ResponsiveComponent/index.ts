@@ -1,0 +1,1 @@
+export { ResponsiveComponent } from "./ResponsiveComponent";

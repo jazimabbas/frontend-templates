@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import { type ComponentProps } from "react";
 import { Button } from "@/components/Button";
 import { AvatarIcon } from "./components/AvatarIcon";
 import {
@@ -12,7 +13,7 @@ import {
   Title,
   Wrapper,
 } from "./components/Client";
-import { ResponsiveButton } from "@/components/ResponsiveButton/ResponsiveButton";
+import { ResponsiveComponent } from "@/components/ResponsiveComponent";
 
 export const metadata: Metadata = {
   title: "Image Uploader",
@@ -28,9 +29,14 @@ export default function ImageUploaderPage() {
             <AvatarWrapper>
               <AvatarIcon />
             </AvatarWrapper>
-            <Button size="lg" variant="secondary">
-              Update picture
-            </Button>
+            <ResponsiveComponent<ComponentProps<typeof Button>>
+              queries={[{ mediaQuery: "(max-width: 568px)", props: { size: "sm" } }]}
+              component={
+                <Button size="lg" variant="secondary">
+                  Update picture
+                </Button>
+              }
+            />
           </Header>
           <Title>Jazim Abbas</Title>
           <AboutWrapper>
@@ -46,7 +52,6 @@ export default function ImageUploaderPage() {
             <span>🇨🇦</span>
             <p>Vancouver, Canada</p>
           </Location>
-          <ResponsiveButton />
         </ContentWrappeer>
       </Card>
     </Wrapper>
