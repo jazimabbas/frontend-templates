@@ -35,7 +35,7 @@ export const Header = styled("div")({
   },
 });
 
-export const UploadSection = styled("div")({
+export const Card = styled("div")({
   marginTop: "32px",
   padding: "24px 0",
   borderRadius: "4px",
