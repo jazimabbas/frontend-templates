@@ -1,0 +1,14 @@
+{
+  "name": "@repo/mui-utils",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/react": "^18",
+    "react": "^18"
+  },
+  "dependencies": {
+    "@mui/material": "^5.15.18",
+    "@mui/material-nextjs": "^5.15.11"
+  }
+}

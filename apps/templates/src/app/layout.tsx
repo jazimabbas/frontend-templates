@@ -1,11 +1,10 @@
+import type {} from "@mui/system"; // DO NOT REMOVE THIS - for pnpm
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
-import { ThemeProvider } from "@mui/material";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 
 import "@/styles/globals.css";
-import { theme } from "@/utils/theme";
 import { Analytics } from "@vercel/analytics/react";
+import { MuiProvider } from "@repo/mui-utils";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -29,9 +28,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
-        </AppRouterCacheProvider>
+        <MuiProvider>{children}</MuiProvider>
 
         {process.env.NODE_ENV === "production" && <Analytics mode="production" />}
       </body>
