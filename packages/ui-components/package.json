@@ -1,0 +1,15 @@
+{
+  "name": "@repo/ui-components",
+  "version": "1.0.0",
+  "exports": {
+    "./badge": "./src/Badge/index.ts"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "eslint": "^8"
+  },
+  "dependencies": {
+    "@types/react": "^18"
+  }
+}

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Badge } from "@/components/Badge";
+import { Badge } from "@repo/ui-components/badge";
 import { GlobalStyles } from "../common/Global";
 import { MaxWidth } from "@/components/MaxWidth";
 import { BadgesWrapper, Wrapper } from "./Client";
@@ -61,7 +61,7 @@ export default function BadgePage() {
               Label
             </Badge>
           </BadgesWrapper>
-          
+
           <BadgesWrapper>
             <Badge color="brand" size="sm">
               Label

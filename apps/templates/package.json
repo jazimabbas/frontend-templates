@@ -12,6 +12,7 @@
     "@mui/material-nextjs": "^5.15.11",
     "@remixicon/react": "^4.2.0",
     "@repo/mui-utils": "workspace:*",
+    "@repo/ui-components": "workspace:*",
     "@vercel/analytics": "^1.2.2",
     "formik": "^2.4.6",
     "framer-motion": "^11.1.9",
@@ -21,7 +22,6 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
-    "@mui/system": "^5.15.15",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^20",

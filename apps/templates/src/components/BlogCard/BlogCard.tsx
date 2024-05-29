@@ -1,6 +1,6 @@
 import { RiArrowRightLine } from "@remixicon/react";
+import { BadgeColor, Badge } from "@repo/ui-components/badge";
 import { Button } from "../Button";
-import { Badge, BadgeColor } from "../Badge";
 import { ContentWrapper, Excerpt, ImageWrapper, Img, Title, Wrapper } from "./Client";
 
 type Props = React.ComponentProps<typeof Wrapper> & {
@@ -28,13 +28,7 @@ export function BlogCard({
   return (
     <Wrapper {...delegated}>
       <ImageWrapper>
-        <Img
-          priority={true}
-          width={340}
-          height={288}
-          src={src}
-          alt={alt}
-        />
+        <Img priority={true} width={340} height={288} src={src} alt={alt} />
       </ImageWrapper>
       <ContentWrapper>
         <Badge color={color} size="md" sx={{ marginBottom: "8px" }}>
