@@ -13,7 +13,7 @@ import {
   Wrapper,
 } from "./Client";
 
-type SideImageFeature = { title: string; description: string; Icon: React.ComponentType<any> };
+type SideImageFeatureType = { title: string; description: string; Icon: React.ComponentType<any> };
 
 export type SideImageFeatureProps = {
   img: {
@@ -24,7 +24,7 @@ export type SideImageFeatureProps = {
   title: string;
   description: string;
   imgVariant?: "left" | "right";
-  features: SideImageFeature[];
+  features: SideImageFeatureType[];
 };
 
 export function SideImageFeature({

@@ -7,4 +7,7 @@ module.exports = {
     React: true,
     JSX: true,
   },
+  rules: {
+    "no-unused-vars": ["error", { varsIgnorePattern: "^_" }],
+  },
 };

@@ -1,4 +1,3 @@
-import { SxProps } from "@mui/material";
 import { GeneralButton } from "./GeneralButton";
 
 export type Variant = "primary" | "secondary" | "tertiary" | "destructive" | "link" | "link:gray";
@@ -17,9 +16,9 @@ export type ButtonProps = Omit<React.ComponentProps<typeof GeneralButton>, "size
   );
 
 export type Components = {
-  [key in Variant]: typeof GeneralButton;
+  [_ in Variant]: typeof GeneralButton;
 };
 
 export type IconSizes = {
-  [key in Size]: number;
+  [_ in Size]: number;
 };
