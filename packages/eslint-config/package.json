@@ -1,4 +1,13 @@
 {
   "name": "@repo/eslint-config",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "files": [
+    "next.js"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "eslint-config-prettier": "^9.1.0"
+  }
 }
