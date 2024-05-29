@@ -2,7 +2,12 @@
   "name": "@repo/ui-components",
   "version": "1.0.0",
   "exports": {
-    "./badge": "./src/Badge/index.ts"
+    "./Badge": "./src/Badge/index.ts",
+    "./Button": "./src/Button/index.ts",
+    "./Input": "./src/Input/index.ts",
+    "./Icon": "./src/Icon/index.ts",
+    "./Link": "./src/Link/index.ts",
+    "./MaxWidth": "./src/Input/index.ts"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

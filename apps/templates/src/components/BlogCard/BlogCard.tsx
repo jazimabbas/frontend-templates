@@ -1,5 +1,5 @@
 import { RiArrowRightLine } from "@remixicon/react";
-import { BadgeColor, Badge } from "@repo/ui-components/badge";
+import { BadgeColor, Badge } from "@repo/ui-components/Badge";
 import { Button } from "../Button";
 import { ContentWrapper, Excerpt, ImageWrapper, Img, Title, Wrapper } from "./Client";
 

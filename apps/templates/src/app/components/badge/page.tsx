@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Badge } from "@repo/ui-components/badge";
+import { Badge } from "@repo/ui-components/Badge";
 import { GlobalStyles } from "../common/Global";
 import { MaxWidth } from "@/components/MaxWidth";
 import { BadgesWrapper, Wrapper } from "./Client";
