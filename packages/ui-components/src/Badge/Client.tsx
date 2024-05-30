@@ -1,7 +1,4 @@
 "use client";
-import type {} from "@mui/system";
-import type {} from "@emotion/styled";
-
 import { styled } from "@mui/material";
 import { BadgeColor, BadgeColors, BadgeSize, BadgeSizes } from "./types";
 
