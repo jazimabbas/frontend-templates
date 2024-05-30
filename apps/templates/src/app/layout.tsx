@@ -2,17 +2,10 @@ import type {} from "@mui/system"; // DO NOT REMOVE THIS - for pnpm
 import type {} from "@emotion/styled"; // DO NOT REMOVE THIS - for pnpm
 
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
 import "@repo/css-design-system/globals.css";
-
-import { Analytics } from "@vercel/analytics/react";
 import { MuiProvider } from "@repo/mui-utils";
-
-const notoSans = Noto_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-family",
-});
+import { notoSans } from "@repo/nextjs-utils/fonts";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Frontend Templates • Jazim Abbas",

@@ -14,6 +14,7 @@
     "@repo/mui-utils": "workspace:*",
     "@repo/ui-components": "workspace:*",
     "@repo/css-design-system": "workspace:*",
+    "@repo/nextjs-utils": "workspace:*",
     "@vercel/analytics": "^1.2.2",
     "formik": "^2.4.6",
     "framer-motion": "^11.1.9",
