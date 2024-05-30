@@ -2,6 +2,7 @@
   "name": "@repo/mui-utils",
   "version": "1.0.0",
   "main": "./src/index.ts",
+  "types": "./typings.d.ts",
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/react": "^18",

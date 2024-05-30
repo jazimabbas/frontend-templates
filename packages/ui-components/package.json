@@ -7,7 +7,8 @@
     "./Input": "./src/Input/index.ts",
     "./Icon": "./src/Icon/index.ts",
     "./Link": "./src/Link/index.ts",
-    "./MaxWidth": "./src/Input/index.ts"
+    "./MaxWidth": "./src/Input/index.ts",
+    "./ResponsiveComponent": "./src/ResponsiveComponent/index.ts"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

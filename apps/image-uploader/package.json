@@ -1,0 +1,29 @@
+{
+  "name": "image-uploader",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "PORT=3001 next dev",
+    "build": "next build",
+    "start": "PORT=3001 next start",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "dependencies": {
+    "@mui/material-nextjs": "^5.15.11",
+    "@remixicon/react": "^4.2.0",
+    "@repo/mui-utils": "workspace:*",
+    "@repo/ui-components": "workspace:*",
+    "@repo/css-design-system": "workspace:*",
+    "@repo/nextjs-utils": "workspace:*",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18"
+  }
+}

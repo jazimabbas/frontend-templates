@@ -7,3 +7,5 @@ declare module "@mui/material/styles" {
     desktop: true;
   }
 }
+
+export * from "./src/index";
