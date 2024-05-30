@@ -1,0 +1,31 @@
+@import "./reset.css";
+@import "./variables.css";
+@import "./typography.css";
+@import "./utilities.css";
+
+html {
+  font-family: var(--font-family), sans-serif;
+  color: var(--color-text);
+}
+
+body {
+  background: linear-gradient(148deg, #f9fafb 8.89%, #d2d6db 100.48%);
+  background-attachment: fixed
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-max-width: 100%;
+    --side-padding: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --side-padding: 16px;
+  }
+}
+
+body.open-menu {
+  overflow: hidden;
+}

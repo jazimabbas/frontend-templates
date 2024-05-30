@@ -3,8 +3,8 @@ import type {} from "@emotion/styled"; // DO NOT REMOVE THIS - for pnpm
 
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
+import "@repo/css-design-system/globals.css";
 
-import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { MuiProvider } from "@repo/mui-utils";
 
