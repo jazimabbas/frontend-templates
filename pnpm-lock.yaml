@@ -67,6 +67,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
@@ -185,6 +188,8 @@ importers:
       react:
         specifier: ^18
         version: 18.3.1
+
+  packages/types: {}
 
   packages/typescript-config: {}
 

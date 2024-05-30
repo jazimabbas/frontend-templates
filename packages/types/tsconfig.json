@@ -1,0 +1,4 @@
+{
+  "include": ["./mui.d.ts"],
+  "exclude": ["node_modules"]
+}

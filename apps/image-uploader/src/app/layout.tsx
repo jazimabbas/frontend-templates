@@ -1,6 +1,3 @@
-import type {} from "@mui/system"; // DO NOT REMOVE THIS - for pnpm
-import type {} from "@emotion/styled"; // DO NOT REMOVE THIS - for pnpm
-
 import type { Metadata } from "next";
 import "@repo/css-design-system/globals.css";
 import { MuiProvider } from "@repo/mui-utils";
