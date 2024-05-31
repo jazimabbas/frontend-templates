@@ -2,9 +2,9 @@
 import { RiCloseLine } from "@remixicon/react";
 import { Backdrop, Modal } from "@mui/material";
 import { Button } from "@repo/ui-components/Button";
-import { Card } from "../Card";
 import { Upload } from "./UploadSection";
 import { backdropSxProps, CardsWrapper, Header, Wrapper } from "./Client";
+import { ProgressCard } from "../ProgressCard";
 
 export function ImageUploadModal() {
   return (
@@ -28,7 +28,7 @@ export function ImageUploadModal() {
         <Upload />
 
         <CardsWrapper>
-          <Card />
+          <ProgressCard />
         </CardsWrapper>
       </Wrapper>
     </Modal>
