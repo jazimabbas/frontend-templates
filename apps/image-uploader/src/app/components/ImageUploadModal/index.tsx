@@ -1,9 +1,10 @@
 "use client";
-import { Button } from "@repo/ui-components/Button";
-import { Backdrop, Modal } from "@mui/material";
 import { RiCloseLine } from "@remixicon/react";
+import { Backdrop, Modal } from "@mui/material";
+import { Button } from "@repo/ui-components/Button";
+import { Card } from "../Card";
 import { Upload } from "./UploadSection";
-import { backdropSxProps, Header, Wrapper } from "./Client";
+import { backdropSxProps, CardsWrapper, Header, Wrapper } from "./Client";
 
 export function ImageUploadModal() {
   return (
@@ -25,6 +26,10 @@ export function ImageUploadModal() {
         </Header>
         <p>You may upload up to 5 images</p>
         <Upload />
+
+        <CardsWrapper>
+          <Card />
+        </CardsWrapper>
       </Wrapper>
     </Modal>
   );

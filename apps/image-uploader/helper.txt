@@ -1,0 +1,2 @@
+Search the file and print all the file's content to terminal:
+find . -name "example.txt" -print0 | xargs -0 cat
