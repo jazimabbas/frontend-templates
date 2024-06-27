@@ -1,14 +1,34 @@
+import { useRef } from "react";
 import { Card, IconWrapper, Subtitle, Title } from "./Client";
 
-export function Upload() {
+export function Upload({ onSetFiles }: { onSetFiles: any }) {
+  const ref = useRef<any>(null);
+
+  const handleChangeFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files) {
+      const filesArray = Array.from(files);
+      onSetFiles(filesArray);
+    }
+  };
+
   return (
-    <Card>
-      <IconWrapper>
-        <UploadIcon />
-      </IconWrapper>
-      <Title>Click or drag and drop to upload</Title>
-      <Subtitle>PNG, or JPG (Max 5MB)</Subtitle>
-    </Card>
+    <>
+      <input
+        type="file"
+        multiple
+        ref={ref}
+        style={{ display: "none" }}
+        onChange={handleChangeFiles}
+      />
+      <Card className="pointer" onClick={() => ref.current.click()}>
+        <IconWrapper>
+          <UploadIcon />
+        </IconWrapper>
+        <Title>Click or drag and drop to upload</Title>
+        <Subtitle>PNG, or JPG (Max 5MB)</Subtitle>
+      </Card>
+    </>
   );
 }
 

@@ -35,7 +35,8 @@ export const Header = styled("div")({
   },
 });
 
-export const Card = styled("div")({
+export const Card = styled("button")({
+  width: "100%",
   marginTop: "32px",
   padding: "24px 0",
   borderRadius: "4px",
