@@ -3,12 +3,12 @@ import { useState } from "react";
 import { RiCloseLine } from "@remixicon/react";
 import { Backdrop, Modal } from "@mui/material";
 import { Button } from "@repo/ui-components/Button";
+import { CardList } from "../CardList";
 import { Upload } from "./UploadSection";
-import { ProgressCard } from "../ProgressCard";
-import { Actions, backdropSxProps, CardsWrapper, Header, Wrapper } from "./Client";
+import { backdropSxProps, Header, Wrapper } from "./Client";
 
 export function ImageUploadModal() {
-  const [files, setFiles] = useState<FileList[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
 
   return (
     <Modal
@@ -30,22 +30,7 @@ export function ImageUploadModal() {
         <p>You may upload up to 5 images</p>
         <Upload onSetFiles={setFiles} />
 
-        {files && files.length > 0 && (
-          <CardsWrapper>
-            {files.map((_, idx) => (
-              <ProgressCard key={idx} />
-            ))}
-
-            <Actions>
-              <Button variant="secondary" size="lg">
-                Cancal
-              </Button>
-              <Button variant="primary" size="lg">
-                Select image
-              </Button>
-            </Actions>
-          </CardsWrapper>
-        )}
+        <CardList files={files} />
       </Wrapper>
     </Modal>
   );
