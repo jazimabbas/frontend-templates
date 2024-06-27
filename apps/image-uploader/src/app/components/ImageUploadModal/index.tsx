@@ -4,6 +4,7 @@ import { Backdrop, Modal } from "@mui/material";
 import { Button } from "@repo/ui-components/Button";
 import { Upload } from "./UploadSection";
 import { InitialCard } from "../InitialCard";
+import { SuccessCard } from "../SuccessCard";
 import { ProgressCard } from "../ProgressCard";
 import { backdropSxProps, CardsWrapper, Header, Wrapper } from "./Client";
 
@@ -31,6 +32,7 @@ export function ImageUploadModal() {
         <CardsWrapper>
           <ProgressCard />
           <InitialCard />
+          <SuccessCard />
         </CardsWrapper>
       </Wrapper>
     </Modal>
