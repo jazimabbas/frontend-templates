@@ -79,3 +79,24 @@ export const CardsWrapper = styled("div")({
   gap: "var(--spacing)",
   marginTop: "var(--spacing)",
 });
+
+export const Actions = styled("div")({
+  display: "flex",
+  gap: "16px",
+
+  "& > *": {
+    width: "100%",
+  },
+});
+
+// Upload Limit Component
+export const Heading = styled("p")({
+  color: "var(--color-danger)",
+  fontWeight: "var(--font-semibold)",
+  fontSize: "1rem",
+});
+
+export const SubHeading = styled("p")({
+  fontSize: "12px",
+  marginTop: "3px",
+});
