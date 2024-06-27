@@ -37,10 +37,10 @@ export function ImageUploadModal() {
           <SuccessCard />
 
           <Actions>
-            <Button variant="secondary" size="lg" >
+            <Button variant="secondary" size="lg">
               Cancal
             </Button>
-            <Button variant="primary" size="lg" >
+            <Button variant="primary" size="lg">
               Select image
             </Button>
           </Actions>

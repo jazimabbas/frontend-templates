@@ -13,6 +13,20 @@ export const ImageWrapper = styled("div")({
   overflow: "hidden",
 });
 
+export const IconWrapper = styled(ImageWrapper)({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  border: "1px solid var(--color-text-200)",
+  backgroundColor: "#FAFAFA",
+});
+
+export const ErrorMessage = styled("p")({
+  color: "var(--color-danger)",
+  fontWeight: "var(--font-medium)",
+  fontSize: "0.75rem",
+});
+
 export const ContentWrapper = styled("div")({
   flex: 1,
   display: "flex",

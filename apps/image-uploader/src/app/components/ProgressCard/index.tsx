@@ -10,6 +10,7 @@ export function ProgressCard() {
       filename="IMG_0082.jpg"
       fileSize="331kb"
       trailing={<Button variant="link:gray" size="xl" iconOnly icon={RiCloseLine} />}
+      hasError
     >
       <Wrapper>
         <ProgressWrapper>
