@@ -1,14 +1,15 @@
 import { Button } from "@repo/ui-components/Button";
-import { ProgressCard } from "../ProgressCard";
 import { Actions, Wrapper } from "./Client";
+import { State } from "@/app/helpers/reducer";
+import { ImageCard } from "../ImageCard";
 
-export function CardList({ files }: { files?: File[] }) {
-  if (!files || files.length === 0) return <></>;
+export function CardList({ files }: { files: State[] }) {
+  if (files.length === 0) return <></>;
 
   return (
     <Wrapper>
-      {files.map((_, idx) => (
-        <ProgressCard key={idx} />
+      {files.map((file, idx) => (
+        <ImageCard key={idx} {...file} />
       ))}
 
       <Actions>

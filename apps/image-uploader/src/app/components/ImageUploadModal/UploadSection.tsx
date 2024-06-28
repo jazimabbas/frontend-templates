@@ -1,14 +1,15 @@
-import { useRef } from "react";
+import { Dispatch, useRef } from "react";
 import { Card, IconWrapper, Subtitle, Title } from "./Client";
+import { Action } from "@/app/helpers/reducer";
 
-export function Upload({ onSetFiles }: { onSetFiles: any }) {
+export function Upload({ dispatch }: { dispatch: Dispatch<Action> }) {
   const ref = useRef<any>(null);
 
   const handleChangeFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files) {
       const filesArray = Array.from(files);
-      onSetFiles(filesArray);
+      dispatch({ type: "UPLOAD_FILES", payload: filesArray });
     }
   };
 

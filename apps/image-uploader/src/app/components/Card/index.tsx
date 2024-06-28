@@ -12,7 +12,7 @@ import {
 import { RiFileDamageLine } from "@remixicon/react";
 
 type Props = {
-  imgSrc: string;
+  imgSrc: string | File;
   filename: string;
   fileSize: string;
   trailing: React.ReactNode;
@@ -31,12 +31,13 @@ export function Card({ imgSrc, filename, fileSize, trailing, hasError, children 
       ) : (
         <ImageWrapper>
           <Image
-            src={imgSrc}
+            src={imgSrc as any}
             alt="User Avatar"
             width={80}
             height={80}
-            objectFit="cover"
-            objectPosition="center"
+            style={{ objectFit: "cover", objectPosition: "center" }}
+            // objectFit="cover"
+            // objectPosition="center"
           />
         </ImageWrapper>
       )}
