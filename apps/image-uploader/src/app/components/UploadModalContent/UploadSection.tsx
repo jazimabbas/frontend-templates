@@ -1,10 +1,11 @@
-import { Dispatch, useRef } from "react";
+import { useRef } from "react";
 import { ModalCard } from "../ModalCard";
-import { Action } from "@/app/helpers/reducer";
+import { useImageUploadUpdate } from "../Providers";
 import { IconWrapper, Subtitle, Title } from "./Client";
 
-export function Upload({ dispatch }: { dispatch: Dispatch<Action> }) {
+export function Upload() {
   const ref = useRef<any>(null);
+  const dispatch = useImageUploadUpdate();
 
   const handleChangeFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;

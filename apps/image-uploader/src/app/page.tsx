@@ -15,6 +15,7 @@ import {
   Title,
   Wrapper,
 } from "./components/Client";
+import { ImageProvider } from "./components/Providers";
 
 export const metadata: Metadata = {
   title: "Image Uploader • Jazim Abbas",
@@ -56,7 +57,9 @@ export default function ImageUploaderPage() {
         </ContentWrappeer>
       </Card>
 
-      <ImageUploadModal />
+      <ImageProvider>
+        <ImageUploadModal />
+      </ImageProvider>
     </Wrapper>
   );
 }

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Button } from "@repo/ui-components/Button";
 import { ImageCard } from "../ImageCard";
-import { State } from "@/app/helpers/reducer";
 import { Actions, Wrapper } from "./Client";
+import { useImageUpload } from "../Providers";
 
-export function CardList({ files }: { files: State[] }) {
+export function CardList() {
   const [selected, setSelected] = useState<string>();
+  const files = useImageUpload();
 
   if (files.length === 0) return <></>;
 

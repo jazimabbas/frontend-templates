@@ -1,13 +1,9 @@
 "use client";
-import { useReducer } from "react";
 import { Backdrop, Modal } from "@mui/material";
-import { reducer } from "@/app/helpers/reducer";
 import { backdropSxProps, Wrapper } from "./Client";
 import { UploadModalContent } from "../UploadModalContent";
 
 export function ImageUploadModal() {
-  const [state, dispatch] = useReducer(reducer, []);
-
   return (
     <Modal
       open
@@ -21,7 +17,7 @@ export function ImageUploadModal() {
       }}
     >
       <Wrapper>
-        <UploadModalContent state={state} dispatch={dispatch} />
+        <UploadModalContent />
       </Wrapper>
     </Modal>
   );

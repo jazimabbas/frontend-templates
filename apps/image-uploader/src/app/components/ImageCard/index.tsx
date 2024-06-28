@@ -1,9 +1,10 @@
 import Stack from "@mui/material/Stack";
 import { Button } from "@repo/ui-components/Button";
 import { RiCheckLine, RiCloseLine, RiDeleteBin3Line } from "@remixicon/react";
+
 import { Card } from "../Card";
+import { State } from "../Providers";
 import { useManage } from "./useManage";
-import { State } from "@/app/helpers/reducer";
 import { Radio } from "../InitialCard/Client";
 import { Progress, ProgressCount, ProgressWrapper, ProgressIndicatorWrapper } from "./Client";
 
