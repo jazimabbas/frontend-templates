@@ -3,18 +3,20 @@ import { Button } from "@repo/ui-components/Button";
 import { RiCheckLine, RiCloseLine, RiDeleteBin3Line } from "@remixicon/react";
 
 import { Card } from "../Card";
-import { State } from "../Providers";
 import { useManage } from "./useManage";
 import { Radio } from "../InitialCard/Client";
+import { FileState, useImageUploadUpdate } from "../Providers";
 import { Progress, ProgressCount, ProgressWrapper, ProgressIndicatorWrapper } from "./Client";
+import { Optional } from "@/utils/types";
 
-type Props = State & { onSelected: any; currentSelected?: string };
+type Props = FileState & { currentSelected: Optional<string> };
 
 export function ImageCard(props: Props) {
-  const { previewImageURL, inputFile, upload, currentSelected, id, onSelected } = props;
-  const isSelected = currentSelected === id;
-
+  const dispatch = useImageUploadUpdate();
   const { fileSize, justUploaded } = useManage(props);
+
+  const { previewImageURL, inputFile, upload, id, currentSelected } = props;
+  const isSelected = currentSelected === id;
 
   const renderTrailing = () => {
     if (upload?.status === "IN_PROGRESS" || justUploaded) {
@@ -25,7 +27,7 @@ export function ImageCard(props: Props) {
         type="radio"
         name="imageCard"
         value={id}
-        onChange={(e) => onSelected(e.target.value)}
+        onChange={(e) => dispatch({ type: "UPDATE_CURRENT_SELECTED", payload: e.target.value })}
       />
     );
   };

@@ -2,11 +2,11 @@
 import React, { createContext, Dispatch, useContext, useReducer } from "react";
 import { Action, reducer, State } from "./reducer";
 
-const ImageContext = createContext<State[]>([]);
+const ImageContext = createContext<State>({} as any);
 const UpdateImageContext = createContext<Dispatch<Action>>({} as any);
 
 export function ImageProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, []);
+  const [state, dispatch] = useReducer(reducer, { files: [], currentSelected: null });
 
   return (
     <UpdateImageContext.Provider value={dispatch}>
