@@ -19,7 +19,7 @@ export function CardList({ files }: { files: State[] }) {
         <Button variant="secondary" size="lg">
           Cancal
         </Button>
-        <Button variant="primary" size="lg">
+        <Button variant="primary" size="lg" disabled={!selected}>
           Select image
         </Button>
       </Actions>

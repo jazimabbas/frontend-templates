@@ -1,6 +1,7 @@
 import { Dispatch, useRef } from "react";
-import { Card, IconWrapper, Subtitle, Title } from "./Client";
+import { ModalCard } from "../ModalCard";
 import { Action } from "@/app/helpers/reducer";
+import { IconWrapper, Subtitle, Title } from "./Client";
 
 export function Upload({ dispatch }: { dispatch: Dispatch<Action> }) {
   const ref = useRef<any>(null);
@@ -22,13 +23,13 @@ export function Upload({ dispatch }: { dispatch: Dispatch<Action> }) {
         style={{ display: "none" }}
         onChange={handleChangeFiles}
       />
-      <Card className="pointer" onClick={() => ref.current.click()}>
+      <ModalCard className="pointer" onClick={() => ref.current.click()}>
         <IconWrapper>
           <UploadIcon />
         </IconWrapper>
         <Title>Click or drag and drop to upload</Title>
         <Subtitle>PNG, or JPG (Max 5MB)</Subtitle>
-      </Card>
+      </ModalCard>
     </>
   );
 }
