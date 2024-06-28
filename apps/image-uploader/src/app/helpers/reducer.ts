@@ -31,7 +31,7 @@ export function reducer(state: State[], action: Action) {
         (file, idx): State => ({
           id: idx.toString(),
           inputFile: file,
-          upload: { status: "IN_PROGRESS", progress: 0 },
+          upload: { status: "UPLOADED", progress: 0 },
           previewImageURL: URL.createObjectURL(file),
         })
       );

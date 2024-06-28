@@ -1,13 +1,17 @@
-import { RiCheckLine, RiCloseLine, RiDeleteBin3Line } from "@remixicon/react";
+import Stack from "@mui/material/Stack";
 import { Button } from "@repo/ui-components/Button";
+import { RiCheckLine, RiCloseLine, RiDeleteBin3Line } from "@remixicon/react";
 import { Card } from "../Card";
 import { useManage } from "./useManage";
 import { State } from "@/app/helpers/reducer";
 import { Radio } from "../InitialCard/Client";
 import { Progress, ProgressCount, ProgressWrapper, ProgressIndicatorWrapper } from "./Client";
 
-export function ImageCard(props: State) {
-  const { previewImageURL, inputFile, upload } = props;
+type Props = State & { onSelected: any; currentSelected?: string };
+
+export function ImageCard(props: Props) {
+  const { previewImageURL, inputFile, upload, currentSelected, id, onSelected } = props;
+  const isSelected = currentSelected === id;
 
   const { fileSize, justUploaded } = useManage(props);
 
@@ -15,7 +19,14 @@ export function ImageCard(props: State) {
     if (upload?.status === "IN_PROGRESS" || justUploaded) {
       return <Button variant="link:gray" size="xl" iconOnly icon={RiCloseLine} />;
     }
-    return <Radio type="radio" name="testing" />;
+    return (
+      <Radio
+        type="radio"
+        name="imageCard"
+        value={id}
+        onChange={(e) => onSelected(e.target.value)}
+      />
+    );
   };
 
   const renderChildren = () => {
@@ -44,14 +55,30 @@ export function ImageCard(props: State) {
       );
     else if (upload?.status === "UPLOADED") {
       return (
-        <Button
-          size="md"
-          variant="link:gray"
-          leftIcon={RiDeleteBin3Line}
-          sx={{ width: "fit-content" }}
-        >
-          Delete
-        </Button>
+        <Stack direction="row" gap="10px">
+          {isSelected && (
+            <>
+              <Button
+                size="md"
+                variant="link:gray"
+                leftIcon={RiDeleteBin3Line}
+                sx={{ width: "fit-content" }}
+              >
+                Crop
+              </Button>
+              <span>•</span>
+            </>
+          )}
+
+          <Button
+            size="md"
+            variant="link:gray"
+            leftIcon={RiDeleteBin3Line}
+            sx={{ width: "fit-content" }}
+          >
+            Delete
+          </Button>
+        </Stack>
       );
     }
   };

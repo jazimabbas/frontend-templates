@@ -1,15 +1,18 @@
+import { useState } from "react";
 import { Button } from "@repo/ui-components/Button";
-import { Actions, Wrapper } from "./Client";
-import { State } from "@/app/helpers/reducer";
 import { ImageCard } from "../ImageCard";
+import { State } from "@/app/helpers/reducer";
+import { Actions, Wrapper } from "./Client";
 
 export function CardList({ files }: { files: State[] }) {
+  const [selected, setSelected] = useState<string>();
+
   if (files.length === 0) return <></>;
 
   return (
     <Wrapper>
       {files.map((file, idx) => (
-        <ImageCard key={idx} {...file} />
+        <ImageCard key={idx} {...file} currentSelected={selected} onSelected={setSelected} />
       ))}
 
       <Actions>
