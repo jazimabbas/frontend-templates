@@ -20,7 +20,14 @@ export type FileState = {
 
 export type State = {
   files: FileState[];
-  currentSelected: Optional<string>;
+  /**
+   * store FileState.id
+   */
+  imageSelected: Optional<string>;
+  /**
+   * store FileState.id
+   */
+  cropImageSelected: Optional<string>;
 };
 
 export type Action =
@@ -31,7 +38,17 @@ export type Action =
   | {
       type: "UPDATE_CURRENT_SELECTED";
       payload: string | null;
+    }
+  | {
+      type: "UPDATE_CROP_IMAGE_SELECTED";
+      payload: string | null;
     };
+
+export const initialState: State = {
+  files: [],
+  imageSelected: null,
+  cropImageSelected: null,
+};
 
 export function reducer(state: State, action: Action) {
   return produce(state, (draftState) => {
@@ -49,7 +66,10 @@ export function reducer(state: State, action: Action) {
       draftState.files = updatedFiles;
       return;
     } else if (type === "UPDATE_CURRENT_SELECTED") {
-      draftState.currentSelected = payload;
+      draftState.imageSelected = payload;
+      return;
+    } else if (type === "UPDATE_CROP_IMAGE_SELECTED") {
+      draftState.cropImageSelected = payload;
       return;
     }
 

@@ -1,9 +1,15 @@
 "use client";
 import { Backdrop, Modal } from "@mui/material";
+
+import { CropImage } from "../CropImage";
+import { useImageUpload } from "../Providers";
 import { backdropSxProps, Wrapper } from "./Client";
 import { UploadModalContent } from "../UploadModalContent";
 
 export function ImageUploadModal() {
+  const { cropImageSelected } = useImageUpload();
+  const styles = cropImageSelected ? { width: "343px" } : {};
+
   return (
     <Modal
       open
@@ -16,9 +22,7 @@ export function ImageUploadModal() {
         },
       }}
     >
-      <Wrapper>
-        <UploadModalContent />
-      </Wrapper>
+      <Wrapper sx={styles}>{cropImageSelected ? <CropImage /> : <UploadModalContent />}</Wrapper>
     </Modal>
   );
 }

@@ -66,6 +66,7 @@ export function ImageCard(props: Props) {
                 variant="link:gray"
                 leftIcon={RiDeleteBin3Line}
                 sx={{ width: "fit-content" }}
+                onClick={() => dispatch({ type: "UPDATE_CROP_IMAGE_SELECTED", payload: id })}
               >
                 Crop
               </Button>

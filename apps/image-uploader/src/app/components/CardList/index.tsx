@@ -4,7 +4,7 @@ import { Actions, Wrapper } from "./Client";
 import { useImageUpload } from "../Providers";
 
 export function CardList() {
-  const { files, currentSelected } = useImageUpload();
+  const { files, imageSelected: currentSelected } = useImageUpload();
 
   if (files.length === 0) return <></>;
 

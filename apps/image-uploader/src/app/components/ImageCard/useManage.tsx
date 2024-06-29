@@ -16,7 +16,7 @@ export function useManage({ inputFile, upload }: State) {
 
     const timeoutId = setTimeout(() => {
       setJustUploaded(false);
-    }, 2000);
+    }, 500);
 
     return () => {
       clearTimeout(timeoutId);

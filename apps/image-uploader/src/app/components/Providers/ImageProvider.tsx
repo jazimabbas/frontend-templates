@@ -1,12 +1,12 @@
 "use client";
 import React, { createContext, Dispatch, useContext, useReducer } from "react";
-import { Action, reducer, State } from "./reducer";
+import { Action, initialState, reducer, State } from "./reducer";
 
 const ImageContext = createContext<State>({} as any);
 const UpdateImageContext = createContext<Dispatch<Action>>({} as any);
 
 export function ImageProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, { files: [], currentSelected: null });
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <UpdateImageContext.Provider value={dispatch}>
