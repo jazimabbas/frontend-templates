@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import 'react-image-crop/dist/ReactCrop.css'
 import "@repo/css-design-system/globals.css";
+import 'react-advanced-cropper/dist/style.css';
 import { MuiProvider } from "@repo/mui-utils";
 import { notoSans } from "@repo/nextjs-utils/fonts";
 
