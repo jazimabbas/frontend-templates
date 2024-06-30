@@ -1,63 +1,62 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef } from "react";
+import { RiCloseLine } from "@remixicon/react";
 import { Button } from "@repo/ui-components/Button";
 import { CircleStencil, Cropper, CropperRef } from "react-advanced-cropper";
-import { Actions, ImageWrapper } from "./Client";
+import { convertToBlob } from "./helpers";
+import { useImageUpload, useImageUploadUpdate } from "../Providers";
+import { Actions, Header, ImageWrapper } from "./Client";
 
 export function CropImage() {
   const cropperRef = useRef<CropperRef>();
-  const [output, setOutput] = useState<any>();
+  const dispatch = useImageUploadUpdate();
+  const { files, cropImageSelected } = useImageUpload();
+
+  const imageURL = useMemo(() => {
+    const file = files.find((f) => f.id === cropImageSelected);
+    return file?.previewImageURL;
+  }, [files, cropImageSelected]);
 
   const handleCrop = () => {
-    const imageURL = cropperRef.current?.getCanvas()?.toDataURL();
-    setOutput(imageURL as any);
+    const payload = convertToBlob(cropperRef.current);
+    if (!payload) return;
 
-    const blob = dataURItoBlob(imageURL);
-    console.log({ blob });
+    const { blob } = payload;
+
     const file = new File([blob], "crop", { type: "image/jpeg" });
     console.log({ file });
+
+    dispatch({ type: "UPDATE_CROP_IMAGE_SELECTED", payload: null });
   };
 
-  function dataURItoBlob(dataURI: any) {
-    // convert base64 to raw binary data held in a string
-    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
-    var byteString = atob(dataURI.split(",")[1]);
+  const handleCancel = () => {
+    dispatch({ type: "UPDATE_CROP_IMAGE_SELECTED", payload: null });
+  };
 
-    // separate out the mime component
-    var mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
-
-    // write the bytes of the string to an ArrayBuffer
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
-    }
-    return new Blob([ab], { type: mimeString });
-  }
+  if (!imageURL) return <></>;
 
   return (
     <>
+      <Header>
+        <h5>Crop your picture</h5>
+        <Button size="2xl" variant="link:gray" iconOnly icon={RiCloseLine} onClick={handleCancel} />
+      </Header>
       <ImageWrapper>
         <Cropper
           ref={cropperRef as any}
-          src="/images/jazim.jpeg"
+          src={imageURL}
           stencilComponent={CircleStencil}
           minWidth={1000}
           maxWidth={1500}
         />
       </ImageWrapper>
       <Actions>
-        <Button variant="secondary" size="lg">
+        <Button variant="secondary" size="lg" onClick={handleCancel}>
           Cancel
         </Button>
         <Button variant="primary" size="lg" onClick={handleCrop}>
           Confirm
         </Button>
       </Actions>
-      {output && (
-        <div>
-          <img src={output} />
-        </div>
-      )}
     </>
   );
 }

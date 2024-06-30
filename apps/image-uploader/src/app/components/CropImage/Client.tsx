@@ -16,3 +16,16 @@ export const Actions = styled("div")({
     width: "100%",
   },
 });
+
+export const Header = styled("div")({
+  display: "flex",
+  gap: "8px",
+  alignItems: "center",
+  marginBottom: "16px",
+
+  "& > :first-child": {
+    flex: 1,
+    fontSize: "1.125rem",
+    fontWeight: "var(--font-semibold)",
+  },
+});

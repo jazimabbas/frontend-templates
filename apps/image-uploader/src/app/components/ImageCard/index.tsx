@@ -4,10 +4,10 @@ import { RiCheckLine, RiCloseLine, RiDeleteBin3Line } from "@remixicon/react";
 
 import { Card } from "../Card";
 import { useManage } from "./useManage";
+import { Optional } from "@/utils/types";
 import { Radio } from "../InitialCard/Client";
 import { FileState, useImageUploadUpdate } from "../Providers";
 import { Progress, ProgressCount, ProgressWrapper, ProgressIndicatorWrapper } from "./Client";
-import { Optional } from "@/utils/types";
 
 type Props = FileState & { currentSelected: Optional<string> };
 
@@ -17,6 +17,11 @@ export function ImageCard(props: Props) {
 
   const { previewImageURL, inputFile, upload, id, currentSelected } = props;
   const isSelected = currentSelected === id;
+
+  const handleCrop = () => {
+    dispatch({ type: "UPDATE_CROP_IMAGE_SELECTED", payload: id });
+    dispatch({ type: "UPDATE_CURRENT_SELECTED", payload: null });
+  };
 
   const renderTrailing = () => {
     if (upload?.status === "IN_PROGRESS" || justUploaded) {
@@ -66,7 +71,7 @@ export function ImageCard(props: Props) {
                 variant="link:gray"
                 leftIcon={RiDeleteBin3Line}
                 sx={{ width: "fit-content" }}
-                onClick={() => dispatch({ type: "UPDATE_CROP_IMAGE_SELECTED", payload: id })}
+                onClick={handleCrop}
               >
                 Crop
               </Button>

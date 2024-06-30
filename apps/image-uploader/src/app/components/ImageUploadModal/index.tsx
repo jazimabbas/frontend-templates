@@ -9,7 +9,6 @@ import { CropImage } from "../CropImage";
 export function ImageUploadModal() {
   const { cropImageSelected } = useImageUpload();
   const styles = cropImageSelected ? { width: "343px" } : {};
-  const block = false;
 
   return (
     <Modal
@@ -23,17 +22,7 @@ export function ImageUploadModal() {
         },
       }}
     >
-      <>
-        {block && (
-          <Wrapper sx={styles}>
-            {cropImageSelected ? <CropImage /> : <UploadModalContent />}
-          </Wrapper>
-        )}
-
-        <Wrapper sx={{ width: "343px" }}>
-          <CropImage />
-        </Wrapper>
-      </>
+      <Wrapper sx={styles}>{cropImageSelected ? <CropImage /> : <UploadModalContent />}</Wrapper>
     </Modal>
   );
 }
