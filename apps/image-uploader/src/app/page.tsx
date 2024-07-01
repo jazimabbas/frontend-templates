@@ -16,12 +16,22 @@ import {
   Wrapper,
 } from "./components/Client";
 import { ImageProvider } from "./components/Providers";
+import { getUser } from "@/actions";
 
 export const metadata: Metadata = {
   title: "Image Uploader • Jazim Abbas",
 };
 
-export default function ImageUploaderPage() {
+export default async function ImageUploaderPage() {
+  const user = await getUser();
+
+  if (!user)
+    return (
+      <Wrapper>
+        <p>Oops, User is not found. You might need to populate the Seed Data.</p>
+      </Wrapper>
+    );
+
   return (
     <Wrapper>
       <Card>
@@ -40,19 +50,19 @@ export default function ImageUploaderPage() {
               }
             />
           </Header>
-          <Title>Jazim Abbas</Title>
+          <Title>{user.name}</Title>
           <AboutWrapper>
-            <p>@jazimabbas</p>
+            <p>@{user.socialHandle}</p>
             <span className="light">•</span>
             <p>
-              Senior Software Engineer <span className="light">at</span> Google
+              {user.jobRole} <span className="light">at</span> {user.company}
             </p>
             <span className="light">•</span>
-            <span className="light">He/Him</span>
+            <span className="light">{user.gender === "male" ? "He/Him" : "She/Her"}</span>
           </AboutWrapper>
           <Location>
             <span>🇨🇦</span>
-            <p>Vancouver, Canada</p>
+            <p>{user.currentLocation}</p>
           </Location>
         </ContentWrappeer>
       </Card>

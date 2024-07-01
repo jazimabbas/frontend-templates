@@ -1,14 +1,14 @@
 CREATE TABLE IF NOT EXISTS "images" (
-	"id" text PRIMARY KEY NOT NULL,
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"size" integer NOT NULL,
 	"name" varchar(256) NOT NULL,
 	"url" varchar(1055) NOT NULL,
-	"iamgeId" text,
-	"user" text NOT NULL
+	"iamgeId" uuid,
+	"user" uuid NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "users" (
-	"id" text PRIMARY KEY NOT NULL,
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"name" varchar(256) NOT NULL,
 	"social_handle" varchar(256) NOT NULL,
 	"job_role" varchar(256) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS "users" (
 	"gender" varchar(50) DEFAULT 'male',
 	"current_location" varchar(256) NOT NULL,
 	"bg_image" varchar(256),
-	"avatar" text
+	"avatar" uuid
 );
 --> statement-breakpoint
 DO $$ BEGIN

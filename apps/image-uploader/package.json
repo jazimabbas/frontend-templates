@@ -8,7 +8,8 @@
     "start": "PORT=3001 next start",
     "lint": "eslint . --max-warnings 0",
     "db:generate": "pnpm drizzle-kit generate",
-    "db:migrate": "env-cmd -f .env.local pnpm tsx src/db/migrate.ts"
+    "db:migrate": "env-cmd -f .env.local pnpm tsx src/db/migrate.ts",
+    "db:seed": "env-cmd -f .env.local pnpm tsx src/seed/index.ts"
   },
   "dependencies": {
     "@mui/material-nextjs": "^5.15.11",

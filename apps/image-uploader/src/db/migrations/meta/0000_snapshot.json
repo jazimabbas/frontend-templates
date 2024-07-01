@@ -1,5 +1,5 @@
 {
-  "id": "4acb80d6-f8c2-4a9a-bb1a-28e1056e798f",
+  "id": "cce62c3a-74ff-41a2-9036-54d678b2ae5f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -10,9 +10,10 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "text",
+          "type": "uuid",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "default": "gen_random_uuid()"
         },
         "size": {
           "name": "size",
@@ -34,13 +35,13 @@
         },
         "iamgeId": {
           "name": "iamgeId",
-          "type": "text",
+          "type": "uuid",
           "primaryKey": false,
           "notNull": false
         },
         "user": {
           "name": "user",
-          "type": "text",
+          "type": "uuid",
           "primaryKey": false,
           "notNull": true
         }
@@ -83,9 +84,10 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "text",
+          "type": "uuid",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "default": "gen_random_uuid()"
         },
         "name": {
           "name": "name",
@@ -132,7 +134,7 @@
         },
         "avatar": {
           "name": "avatar",
-          "type": "text",
+          "type": "uuid",
           "primaryKey": false,
           "notNull": false
         }

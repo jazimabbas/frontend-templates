@@ -1,9 +1,8 @@
-"use server";
 import { relations } from "drizzle-orm";
-import { AnyPgColumn, integer, pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { AnyPgColumn, integer, pgTable, uuid, varchar } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
-  id: text("id").primaryKey(),
+  id: uuid("id").defaultRandom().primaryKey(),
   name: varchar("name", { length: 256 }).notNull(),
   socialHandle: varchar("social_handle", { length: 256 }).notNull(),
   jobRole: varchar("job_role", { length: 256 }).notNull(),
@@ -11,22 +10,22 @@ export const users = pgTable("users", {
   gender: varchar("gender", { length: 50 }).default("male"),
   currentLocation: varchar("current_location", { length: 256 }).notNull(),
   bgImage: varchar("bg_image", { length: 256 }),
-  avatar: text("avatar").references((): AnyPgColumn => images.id, {
+  avatar: uuid("avatar").references((): AnyPgColumn => images.id, {
     onUpdate: "cascade",
     onDelete: "cascade",
   }),
 });
 
 export const images = pgTable("images", {
-  id: text("id").primaryKey(),
+  id: uuid("id").defaultRandom().primaryKey(),
   size: integer("size").notNull(), // fileSize
   name: varchar("name", { length: 256 }).notNull(), // filename
   url: varchar("url", { length: 1055 }).notNull(),
-  parentImage: text("iamgeId").references((): AnyPgColumn => images.id, {
+  parentImage: uuid("iamgeId").references((): AnyPgColumn => images.id, {
     onUpdate: "cascade",
     onDelete: "cascade",
   }),
-  user: text("user")
+  user: uuid("user")
     .notNull()
     .references((): AnyPgColumn => users.id, {
       onUpdate: "cascade",
