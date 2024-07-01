@@ -6,15 +6,19 @@
     "dev": "PORT=3001 next dev",
     "build": "next build",
     "start": "PORT=3001 next start",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "db:generate": "pnpm drizzle-kit generate",
+    "db:migrate": "env-cmd -f .env.local pnpm tsx src/db/migrate.ts"
   },
   "dependencies": {
     "@mui/material-nextjs": "^5.15.11",
+    "@neondatabase/serverless": "^0.9.4",
     "@remixicon/react": "^4.2.0",
     "@repo/css-design-system": "workspace:*",
     "@repo/mui-utils": "workspace:*",
     "@repo/nextjs-utils": "workspace:*",
     "@repo/ui-components": "workspace:*",
+    "drizzle-orm": "^0.31.2",
     "immer": "^10.1.1",
     "next": "14.2.3",
     "react": "^18",
@@ -27,6 +31,9 @@
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
-    "@types/react-dom": "^18"
+    "@types/react-dom": "^18",
+    "drizzle-kit": "^0.22.8",
+    "env-cmd": "^10.1.0",
+    "tsx": "^4.16.0"
   }
 }
