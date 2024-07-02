@@ -10,7 +10,6 @@ import { UploadModalContent } from "../UploadModalContent";
 export function ImageUploadModal() {
   const currentCropImageId = useAtomValue(cropImageSelectedAtom);
   const styles = currentCropImageId ? { width: "343px" } : {};
-  console.log({ currentCropImageId });
 
   return (
     <Modal

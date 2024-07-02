@@ -13,7 +13,7 @@ import { Progress, ProgressCount, ProgressWrapper, ProgressIndicatorWrapper } fr
 type Props = UploadedFile & { currentSelected: Optional<string> };
 
 export function ImageCard(props: Props) {
-  const { fileSize, justUploaded } = useManage(props);
+  const { fileSize } = useManage(props);
   const setImageSelected = useSetAtom(imageSelectedAtom);
   const setCropImageSelected = useSetAtom(cropImageSelectedAtom);
 
@@ -26,7 +26,7 @@ export function ImageCard(props: Props) {
   };
 
   const renderTrailing = () => {
-    if (upload?.status === "IN_PROGRESS" || justUploaded) {
+    if (upload?.status === "IN_PROGRESS" || upload?.status === "JUST_UPLOADED") {
       return <Button variant="link:gray" size="xl" iconOnly icon={RiCloseLine} />;
     }
     return (
@@ -51,7 +51,7 @@ export function ImageCard(props: Props) {
       );
     }
 
-    if (justUploaded)
+    if (upload?.status === "JUST_UPLOADED")
       return (
         <Button
           as="p"

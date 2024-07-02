@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+import { atomWithImmer } from "jotai-immer";
 import { Optional } from "@/utils/types";
 
 type UploadStatus = "IN_PROGRESS" | "UPLOADED" | "ERROR" | "JUST_UPLOADED";
@@ -22,4 +23,4 @@ export const imageSelectedAtom = atom<Optional<string>>(null);
 
 export const cropImageSelectedAtom = atom<Optional<string>>(null);
 
-export const imagesAtom = atom<UploadedFile[]>([]);
+export const imagesAtom = atomWithImmer<UploadedFile[]>([]);

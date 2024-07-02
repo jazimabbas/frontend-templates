@@ -12,7 +12,7 @@ export function useManageFiles() {
       const updatedFiles: UploadedFile[] = filesArray.map((file, idx) => ({
         id: idx.toString(),
         inputFile: file,
-        upload: { status: "UPLOADED", progress: 0 },
+        upload: { status: "JUST_UPLOADED", progress: 0 },
         previewImageURL: URL.createObjectURL(file),
       }));
 

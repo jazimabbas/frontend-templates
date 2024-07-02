@@ -1,27 +1,32 @@
-import { useState, useMemo, useEffect } from "react";
+import { useAtom } from "jotai";
+import { useMemo, useEffect } from "react";
 import { formatFileSize } from "./helpers";
-import { UploadedFile } from "@/store/modal";
+import { imagesAtom, UploadedFile } from "@/store/modal";
 
-export function useManage({ inputFile, upload }: UploadedFile) {
-  const [justUploaded, setJustUploaded] = useState(false);
+export function useManage({ inputFile, upload, id }: UploadedFile) {
+  const [images, setImages] = useAtom(imagesAtom);
 
   const fileSize = useMemo(() => {
     return formatFileSize(inputFile?.size ?? 0);
   }, [inputFile]);
 
   useEffect(() => {
-    if (upload?.status !== "UPLOADED") return;
+    if (upload?.status !== "JUST_UPLOADED") return;
 
-    setJustUploaded(true);
+    const idx = images.findIndex((image) => image.id === id);
+    const isImageFound = idx !== -1;
+    if (!isImageFound) return;
 
     const timeoutId = setTimeout(() => {
-      setJustUploaded(false);
+      setImages((draft) => {
+        draft[idx]!.upload!.status = "UPLOADED";
+      });
     }, 500);
 
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [upload?.status]);
+  }, [upload?.status, images, id, setImages]);
 
-  return { justUploaded, fileSize };
+  return { fileSize };
 }
