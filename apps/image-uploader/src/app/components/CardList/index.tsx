@@ -1,24 +1,26 @@
+import { useAtomValue } from "jotai";
 import { Button } from "@repo/ui-components/Button";
 import { ImageCard } from "../ImageCard";
 import { Actions, Wrapper } from "./Client";
-import { useImageUpload } from "../Providers";
+import { imagesAtom, imageSelectedAtom } from "@/store/modal";
 
 export function CardList() {
-  const { files, imageSelected: currentSelected } = useImageUpload();
+  const images = useAtomValue(imagesAtom);
+  const currentlyImageSelected = useAtomValue(imageSelectedAtom);
 
-  if (files.length === 0) return <></>;
+  if (images.length === 0) return <></>;
 
   return (
     <Wrapper>
-      {files.map((file, idx) => (
-        <ImageCard key={idx} {...file} currentSelected={currentSelected} />
+      {images.map((file, idx) => (
+        <ImageCard key={idx} {...file} currentSelected={currentlyImageSelected} />
       ))}
 
       <Actions>
         <Button variant="secondary" size="lg">
           Cancal
         </Button>
-        <Button variant="primary" size="lg" disabled={!currentSelected}>
+        <Button variant="primary" size="lg" disabled={!currentlyImageSelected}>
           Select image
         </Button>
       </Actions>

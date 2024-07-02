@@ -1,3 +1,4 @@
+import { Provider } from "jotai";
 import type { Metadata } from "next";
 import "@repo/css-design-system/globals.css";
 import "react-advanced-cropper/dist/style.css";
@@ -20,7 +21,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
-        <MuiProvider>{children}</MuiProvider>
+        <MuiProvider>
+          <Provider>{children}</Provider>
+        </MuiProvider>
       </body>
     </html>
   );

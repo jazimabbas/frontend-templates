@@ -1,5 +1,4 @@
 import { produce } from "immer";
-import { Optional } from "@/utils/types";
 
 type UploadStatus = "IN_PROGRESS" | "UPLOADED" | "ERROR";
 
@@ -20,14 +19,6 @@ export type FileState = {
 
 export type State = {
   files: FileState[];
-  /**
-   * store FileState.id
-   */
-  imageSelected: Optional<string>;
-  /**
-   * store FileState.id
-   */
-  cropImageSelected: Optional<string>;
 };
 
 export type Action =
@@ -46,8 +37,6 @@ export type Action =
 
 export const initialState: State = {
   files: [],
-  imageSelected: null,
-  cropImageSelected: null,
 };
 
 export function reducer(state: State, action: Action) {
@@ -64,12 +53,6 @@ export function reducer(state: State, action: Action) {
         })
       );
       draftState.files = updatedFiles;
-      return;
-    } else if (type === "UPDATE_CURRENT_SELECTED") {
-      draftState.imageSelected = payload;
-      return;
-    } else if (type === "UPDATE_CROP_IMAGE_SELECTED") {
-      draftState.cropImageSelected = payload;
       return;
     }
 

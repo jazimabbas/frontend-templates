@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect } from "react";
 import { formatFileSize } from "./helpers";
-import { State } from "@/app/helpers/reducer";
+import { UploadedFile } from "@/store/modal";
 
-export function useManage({ inputFile, upload }: State) {
+export function useManage({ inputFile, upload }: UploadedFile) {
   const [justUploaded, setJustUploaded] = useState(false);
 
   const fileSize = useMemo(() => {

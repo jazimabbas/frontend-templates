@@ -1,14 +1,16 @@
 "use client";
+import { useAtomValue } from "jotai";
 import { Backdrop, Modal } from "@mui/material";
 
-import { useImageUpload } from "../Providers";
+import { CropImage } from "../CropImage";
+import { cropImageSelectedAtom } from "@/store/modal";
 import { backdropSxProps, Wrapper } from "./Client";
 import { UploadModalContent } from "../UploadModalContent";
-import { CropImage } from "../CropImage";
 
 export function ImageUploadModal() {
-  const { cropImageSelected } = useImageUpload();
-  const styles = cropImageSelected ? { width: "343px" } : {};
+  const currentCropImageId = useAtomValue(cropImageSelectedAtom);
+  const styles = currentCropImageId ? { width: "343px" } : {};
+  console.log({ currentCropImageId });
 
   return (
     <Modal
@@ -22,7 +24,7 @@ export function ImageUploadModal() {
         },
       }}
     >
-      <Wrapper sx={styles}>{cropImageSelected ? <CropImage /> : <UploadModalContent />}</Wrapper>
+      <Wrapper sx={styles}>{currentCropImageId ? <CropImage /> : <UploadModalContent />}</Wrapper>
     </Modal>
   );
 }

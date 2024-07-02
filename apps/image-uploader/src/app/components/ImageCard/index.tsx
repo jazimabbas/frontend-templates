@@ -1,3 +1,4 @@
+import { useSetAtom } from "jotai";
 import Stack from "@mui/material/Stack";
 import { Button } from "@repo/ui-components/Button";
 import { RiCheckLine, RiCloseLine, RiDeleteBin3Line } from "@remixicon/react";
@@ -6,21 +7,22 @@ import { Card } from "../Card";
 import { useManage } from "./useManage";
 import { Optional } from "@/utils/types";
 import { Radio } from "../InitialCard/Client";
-import { FileState, useImageUploadUpdate } from "../Providers";
+import { cropImageSelectedAtom, imageSelectedAtom, UploadedFile } from "@/store/modal";
 import { Progress, ProgressCount, ProgressWrapper, ProgressIndicatorWrapper } from "./Client";
 
-type Props = FileState & { currentSelected: Optional<string> };
+type Props = UploadedFile & { currentSelected: Optional<string> };
 
 export function ImageCard(props: Props) {
-  const dispatch = useImageUploadUpdate();
   const { fileSize, justUploaded } = useManage(props);
+  const setImageSelected = useSetAtom(imageSelectedAtom);
+  const setCropImageSelected = useSetAtom(cropImageSelectedAtom);
 
   const { previewImageURL, inputFile, upload, id, currentSelected } = props;
   const isSelected = currentSelected === id;
 
   const handleCrop = () => {
-    dispatch({ type: "UPDATE_CROP_IMAGE_SELECTED", payload: id });
-    dispatch({ type: "UPDATE_CURRENT_SELECTED", payload: null });
+    setImageSelected(null);
+    setCropImageSelected(id);
   };
 
   const renderTrailing = () => {
@@ -32,7 +34,7 @@ export function ImageCard(props: Props) {
         type="radio"
         name="imageCard"
         value={id}
-        onChange={(e) => dispatch({ type: "UPDATE_CURRENT_SELECTED", payload: e.target.value })}
+        onChange={(e) => setImageSelected(e.target.value)}
       />
     );
   };

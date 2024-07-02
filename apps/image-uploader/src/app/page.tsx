@@ -3,6 +3,7 @@ import Image from "next/image";
 import { type ComponentProps } from "react";
 import { Button } from "@repo/ui-components/Button";
 import { ResponsiveComponent } from "@repo/ui-components/ResponsiveComponent";
+
 import { AvatarIcon } from "./components/AvatarIcon";
 import { ImageUploadModal } from "./components/ImageUploadModal";
 import {
@@ -15,8 +16,8 @@ import {
   Title,
   Wrapper,
 } from "./components/Client";
-import { ImageProvider } from "./components/Providers";
 import { getUser } from "@/actions";
+import { ImageProvider } from "./components/Providers";
 
 export const metadata: Metadata = {
   title: "Image Uploader • Jazim Abbas",
