@@ -9,6 +9,7 @@ export type UploadedFile = {
   upload?: {
     status: UploadStatus;
     progress: number;
+    erorrMessage?: string;
   };
   inputFile?: File;
   api?: {
@@ -20,7 +21,10 @@ export type UploadedFile = {
 };
 
 export const imageSelectedAtom = atom<Optional<string>>(null);
+imageSelectedAtom.debugLabel = "ImageSelectedAtom";
 
 export const cropImageSelectedAtom = atom<Optional<string>>(null);
+cropImageSelectedAtom.debugLabel = "CropImageSelectedAtom";
 
 export const imagesAtom = atomWithImmer<UploadedFile[]>([]);
+imagesAtom.debugLabel = "ImagesAtom";

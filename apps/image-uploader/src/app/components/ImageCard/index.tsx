@@ -26,17 +26,17 @@ export function ImageCard(props: Props) {
   };
 
   const renderTrailing = () => {
-    if (upload?.status === "IN_PROGRESS" || upload?.status === "JUST_UPLOADED") {
-      return <Button variant="link:gray" size="xl" iconOnly icon={RiCloseLine} />;
-    }
-    return (
-      <Radio
-        type="radio"
-        name="imageCard"
-        value={id}
-        onChange={(e) => setImageSelected(e.target.value)}
-      />
-    );
+    if (upload?.status === "UPLOADED")
+      return (
+        <Radio
+          type="radio"
+          name="imageCard"
+          value={id}
+          onChange={(e) => setImageSelected(e.target.value)}
+        />
+      );
+
+    return <Button variant="link:gray" size="xl" iconOnly icon={RiCloseLine} />;
   };
 
   const renderChildren = () => {
@@ -100,6 +100,8 @@ export function ImageCard(props: Props) {
       filename={inputFile?.name!}
       fileSize={fileSize}
       trailing={renderTrailing()}
+      hasError={upload?.status === "ERROR"}
+      errorMessage={upload?.erorrMessage}
     >
       {renderChildren()}
     </Card>

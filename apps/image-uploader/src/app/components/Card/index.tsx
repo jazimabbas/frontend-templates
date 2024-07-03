@@ -21,7 +21,15 @@ type Props = {
   errorMessage?: string;
 };
 
-export function Card({ imgSrc, filename, fileSize, trailing, hasError, children }: Props) {
+export function Card({
+  imgSrc,
+  filename,
+  fileSize,
+  trailing,
+  hasError,
+  errorMessage,
+  children,
+}: Props) {
   return (
     <Wrapper>
       {hasError ? (
@@ -36,8 +44,6 @@ export function Card({ imgSrc, filename, fileSize, trailing, hasError, children 
             width={80}
             height={80}
             style={{ objectFit: "cover", objectPosition: "center" }}
-            // objectFit="cover"
-            // objectPosition="center"
           />
         </ImageWrapper>
       )}
@@ -52,8 +58,9 @@ export function Card({ imgSrc, filename, fileSize, trailing, hasError, children 
         </Stack>
         {hasError ? (
           <ErrorMessage>
-            The file format of IMG_0080.pcx is not supported. Please upload an image in one of the
-            following formats: JPG or PNG.
+            {/* The file format of IMG_0080.pcx is not supported. Please upload an image in one of the
+            following formats: JPG or PNG. */}
+            {errorMessage}
           </ErrorMessage>
         ) : (
           children
