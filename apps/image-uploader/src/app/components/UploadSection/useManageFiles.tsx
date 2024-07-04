@@ -2,8 +2,6 @@
 import { useSetAtom } from "jotai";
 import { imagesAtom, UploadedFile } from "@/store/modal";
 
-const MIN_DIMENSION = 160;
-
 export function useManageFiles() {
   const setImages = useSetAtom(imagesAtom);
 
@@ -34,8 +32,16 @@ export function useManageFiles() {
     }
   };
 
-  const checkFileDimensions = (file: File) => {
-    return new Promise<{ type: "success" | "error"; message?: string }>((resolve) => {
+  const checkFileDimensions = async (file: File): Promise<FileDimensionResponse> => {
+    const isAllowedFormat = ALLOWED_FILE_FORMATS.includes(file.type);
+    if (!isAllowedFormat) {
+      return {
+        type: "error",
+        message: `Only allowed JPG or PNG file format. Current file format is ${file.type}`,
+      };
+    }
+
+    return new Promise<FileDimensionResponse>((resolve) => {
       const reader = new FileReader();
       reader.onload = () => {
         const img = new Image();
@@ -59,3 +65,8 @@ export function useManageFiles() {
 
   return handleChangeFiles;
 }
+
+const MIN_DIMENSION = 160;
+const ALLOWED_FILE_FORMATS = ["image/png", "image/jpeg"];
+
+type FileDimensionResponse = { type: "success" | "error"; message?: string };
