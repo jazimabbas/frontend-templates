@@ -1,6 +1,13 @@
 "use client";
 import { useSetAtom } from "jotai";
+import { genUploader } from "uploadthing/client";
 import { imagesAtom, UploadedFile } from "@/store/modal";
+import { OurFileRouter } from "@/app/api/uploadthing/core";
+
+const uploadFiles = genUploader<OurFileRouter>({
+  package: "vanilla",
+  url: "/",
+});
 
 export function useManageFiles() {
   const setImages = useSetAtom(imagesAtom);
@@ -29,6 +36,10 @@ export function useManageFiles() {
 
       const updatedFiles = await Promise.all(updatedFilesPromise);
       setImages(updatedFiles);
+
+      if (updatedFiles.length > 0) {
+        await uploadFile(updatedFiles[0]?.inputFile!);
+      }
     }
   };
 
@@ -61,6 +72,20 @@ export function useManageFiles() {
       };
       reader.readAsDataURL(file);
     });
+  };
+
+  const uploadFile = async (file: File) => {
+    try {
+      const response = await uploadFiles("imageUploader", {
+        files: [file],
+        onUploadProgress({ file, progress }) {
+          console.log({ file, progress });
+        },
+      });
+      console.log("response", response);
+    } catch (err) {
+      console.log("Error", err);
+    }
   };
 
   return handleChangeFiles;
