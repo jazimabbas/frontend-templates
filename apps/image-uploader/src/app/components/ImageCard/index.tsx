@@ -1,3 +1,4 @@
+import CircularProgress from "@mui/material/CircularProgress";
 import { Card } from "../Card";
 import { Trailing } from "./Trailing";
 import { useManage } from "./useManage";
@@ -12,6 +13,8 @@ export function ImageCard(props: Props) {
 
   const { previewImageURL, inputFile, upload, id, currentSelected } = props;
   const isSelected = currentSelected === id;
+
+  if (upload?.status === "PROCESSING") return <CircularProgress size={25} />;
 
   return (
     <Card

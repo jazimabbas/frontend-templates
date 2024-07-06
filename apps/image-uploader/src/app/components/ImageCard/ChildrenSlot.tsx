@@ -21,9 +21,9 @@ export function ChildrenSlot({ upload, isSelected, id }: Props) {
     return (
       <ProgressWrapper>
         <ProgressIndicatorWrapper>
-          <Progress color="inherit" variant="determinate" value={27} />
+          <Progress color="inherit" variant="determinate" value={upload.progress} />
         </ProgressIndicatorWrapper>
-        <ProgressCount>27%</ProgressCount>
+        <ProgressCount>{upload.progress}%</ProgressCount>
       </ProgressWrapper>
     );
   }

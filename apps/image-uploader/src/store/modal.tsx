@@ -2,7 +2,7 @@ import { atom } from "jotai";
 import { atomWithImmer } from "jotai-immer";
 import { Optional } from "@/utils/types";
 
-type UploadStatus = "IN_PROGRESS" | "UPLOADED" | "ERROR" | "JUST_UPLOADED";
+type UploadStatus = "IN_PROGRESS" | "UPLOADED" | "ERROR" | "JUST_UPLOADED" | "PROCESSING";
 
 export type UploadedFile = {
   id: string;
@@ -14,7 +14,7 @@ export type UploadedFile = {
   inputFile?: File;
   api?: {
     filename: string;
-    fileSize: string;
+    fileSize: number;
     fileURL: string;
   };
   previewImageURL?: string;

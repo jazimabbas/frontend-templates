@@ -28,7 +28,7 @@ export function useManageFiles() {
         if (type === "error") {
           payload.upload = { status: "ERROR", progress: 0, erorrMessage: message };
         } else {
-          payload.upload = { status: "JUST_UPLOADED", progress: 0 };
+          payload.upload = { status: "PROCESSING", progress: 0 };
         }
 
         return payload;
@@ -37,9 +37,7 @@ export function useManageFiles() {
       const updatedFiles = await Promise.all(updatedFilesPromise);
       setImages(updatedFiles);
 
-      if (updatedFiles.length > 0) {
-        await uploadFile(updatedFiles[0]?.inputFile!);
-      }
+      await uploadFilesToServer(updatedFiles);
     }
   };
 
@@ -74,18 +72,64 @@ export function useManageFiles() {
     });
   };
 
-  const uploadFile = async (file: File) => {
+  const uploadFilesToServer = async (files: UploadedFile[]) => {
+    const promises = files.map(async (file) => {
+      await uploadFile(file);
+    });
+    await Promise.all(promises);
+  };
+
+  const uploadFile = async (payload: UploadedFile) => {
+    const file = payload.inputFile;
+    if (!file) return;
+
     try {
-      const response = await uploadFiles("imageUploader", {
+      const [response] = await uploadFiles("imageUploader", {
         files: [file],
+        onUploadBegin() {
+          updateImageAtom(payload.id, { status: "UPLOADING", payload: { progressCount: 0 } });
+        },
         onUploadProgress({ file, progress }) {
           console.log({ file, progress });
+          updateImageAtom(payload.id, {
+            status: "UPLOADING",
+            payload: { progressCount: progress },
+          });
+        },
+      });
+      updateImageAtom(payload.id, {
+        status: "UPLOADED",
+        payload: {
+          filename: response!.name,
+          fileSize: response!.size,
+          fileURL: response!.url,
         },
       });
       console.log("response", response);
-    } catch (err) {
+    } catch (err: any) {
       console.log("Error", err);
+      updateImageAtom(payload.id, { status: "ERROR", payload: { errorMessage: err.message } });
     }
+  };
+
+  const updateImageAtom = (id: string, data: UpdateImageAtomPayload) => {
+    setImages((draft) => {
+      const idx = draft.findIndex((image) => image.id === id);
+
+      if (idx === -1) return draft;
+
+      const { status, payload } = data;
+
+      if (status === "UPLOADING") {
+        draft[idx]!.upload = { status: "IN_PROGRESS", progress: payload.progressCount };
+      } else if (status === "UPLOADED") {
+        draft[idx]!.upload = { status: "JUST_UPLOADED", progress: 100 };
+        draft[idx]!.api = payload;
+        draft[idx]!.previewImageURL = payload?.fileURL;
+      } else if (status === "ERROR") {
+        draft[idx]!.upload = { status: "ERROR", progress: 0, erorrMessage: payload.errorMessage };
+      }
+    });
   };
 
   return handleChangeFiles;
@@ -95,3 +139,11 @@ const MIN_DIMENSION = 160;
 const ALLOWED_FILE_FORMATS = ["image/png", "image/jpeg"];
 
 type FileDimensionResponse = { type: "success" | "error"; message?: string };
+
+type UpdateImageAtomPayload =
+  | {
+      status: "UPLOADING";
+      payload: { progressCount: number };
+    }
+  | { status: "ERROR"; payload: { errorMessage: string } }
+  | { status: "UPLOADED"; payload: Required<UploadedFile["api"]> };

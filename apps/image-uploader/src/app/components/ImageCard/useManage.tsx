@@ -3,12 +3,12 @@ import { useMemo, useEffect } from "react";
 import { formatFileSize } from "./helpers";
 import { imagesAtom, UploadedFile } from "@/store/modal";
 
-export function useManage({ inputFile, upload, id }: UploadedFile) {
+export function useManage({ inputFile, upload, id, api }: UploadedFile) {
   const [images, setImages] = useAtom(imagesAtom);
 
   const fileSize = useMemo(() => {
-    return formatFileSize(inputFile?.size ?? 0);
-  }, [inputFile]);
+    return formatFileSize(api?.fileSize ?? inputFile?.size ?? 0);
+  }, [inputFile, api]);
 
   useEffect(() => {
     if (upload?.status !== "JUST_UPLOADED") return;
@@ -21,7 +21,7 @@ export function useManage({ inputFile, upload, id }: UploadedFile) {
       setImages((draft) => {
         draft[idx]!.upload!.status = "UPLOADED";
       });
-    }, 500);
+    }, 3000);
 
     return () => {
       clearTimeout(timeoutId);
