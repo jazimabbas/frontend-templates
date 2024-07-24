@@ -55,7 +55,7 @@ export const GeneralButton = styled("button", {
   transition: "background-color 0.3s, box-shadow 0.3s, color 0.3s",
   fontWeight: "var(--font-medium)",
   textDecoration: "none",
-
+  
   ...(size === "sm" && (smStyles(iconOnly) as any)),
   ...(size === "md" && (mdStyles(iconOnly) as any)),
   ...(size === "lg" && (lgStyles(iconOnly) as any)),

@@ -5,10 +5,7 @@ const nextConfig = {
   ...config,
   transpilePackages: ["jotai-devtools"],
   images: {
-    remotePatterns: [
-      ...config.images.remotePatterns,
-      { protocol: "https", hostname: "utfs.io", port: "" },
-    ],
+    remotePatterns: [...config.images.remotePatterns, { protocol: "https", hostname: "utfs.io" }],
   },
 };
 
